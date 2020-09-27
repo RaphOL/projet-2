@@ -1,34 +1,29 @@
 <div class="big-container">
-    <header class="header">
-        <nav class="nav-wrapper flexed-item">
-            <h2 class="logo-item">Fly to me</h2>
+    <a href="/"><i id="imagelogo" class="fas fa-plane-departure"></i></a>
+    <h2 class="logo-item">Fly to me</h2>
+    <ul class="small-container">
+        <li class="nav-item">
+            <a href="/about">About us</a>
+        </li>
+        <li class="nav-item">
+            <a href="/signin">Sign in</a>
+        </li>
+        <li class="nav-item">
+            <a href="/signup">Sign up</a>
+        </li>
+        {{#if isLoggedIn}}
+        <li class="nav-item">
+            <a href="/search">Search for a flight</a>
+        </li>
+        <li class="nav-item">
+            <a href="/manage">Manage a flight</a>
+        </li>
+        {{/if}}
+        {{#if isLoggedIn}}
+        <a href="/logout" id="nav_logout" class="nav-item">
+            <span class="btn-text">Log out</span>
+        </a>
+        {{/if}}
+    </ul>
 </div>
-<ul class="about">
-    <li class="nav-item-about">
-        <a href="/about/collection">About us</a>
-    </li>
-    {{#if isLoggedIn}}
-    <li class="Search">
-        <a href="/prod-add">Search for a flight</a>
-    </li>
-    <li class="manage">
-        <a href="/prod-manage">Manage a flight</a>
-    </li>
-    {{/if}}
-</ul>
-</div>
-<div class="signin">
-    {{#unless isLoggedIn}}
-    <a href="/signin" id="nav_login" class="signin">
-        <span class="btn-text">Sign in</span>
-    </a>
-    {{/unless}}
-    {{#if isLoggedIn}}
-    <a href="/logout" id="nav_logout" class="logout">
-        <span class="btn-text">Log out</span>
-    </a>
-    {{/if}}
-</div>
-</nav>
-</header>
-</div>
+<hr>

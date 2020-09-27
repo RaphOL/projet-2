@@ -1,0 +1,38 @@
+.big-container {
+  display: flex;
+  background-color: cornflowerblue;
+  color: white;
+  font-weight: bold;
+}
+
+.small-container {
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.nav-item {
+  display: flex;
+  width: 30%;
+  justify-content: space-around;
+}
+
+a {
+  list-style-type: none;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+}
+
+.logo-item {
+  width: -webkit-fill-available;
+  padding: 20px;
+}
+
+#imagelogo {
+  padding-top: 30px;
+  padding-left: 60px;
+}

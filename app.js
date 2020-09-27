@@ -52,5 +52,6 @@ app.use(function (err, req, res, next) {
 
 // routers
 app.use("/", require("./routes/index"));
+app.use("/", require("./routes/users"));
 
 module.exports = app;
