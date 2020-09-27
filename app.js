@@ -1,15 +1,23 @@
 require("dotenv").config();
+require("./config/mongodb"); // database initial setup
 
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
 var app = express();
+
+/////////////////////////////
+
+const hbs = require("hbs");
+const mongoose = require("mongoose");
+//Can be util later keep that
+//const session = require("express-session");
+//const MongoStore = require("connect-mongo")(session);
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
