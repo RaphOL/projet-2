@@ -1,0 +1,34 @@
+<div class="big-container">
+    <header class="header">
+        <nav class="nav-wrapper flexed-item">
+            <h2 class="logo-item">Fly to me</h2>
+</div>
+<ul class="about">
+    <li class="nav-item-about">
+        <a href="/about/collection">About us</a>
+    </li>
+    {{#if isLoggedIn}}
+    <li class="Search">
+        <a href="/prod-add">Search for a flight</a>
+    </li>
+    <li class="manage">
+        <a href="/prod-manage">Manage a flight</a>
+    </li>
+    {{/if}}
+</ul>
+</div>
+<div class="signin">
+    {{#unless isLoggedIn}}
+    <a href="/signin" id="nav_login" class="signin">
+        <span class="btn-text">Sign in</span>
+    </a>
+    {{/unless}}
+    {{#if isLoggedIn}}
+    <a href="/logout" id="nav_logout" class="logout">
+        <span class="btn-text">Log out</span>
+    </a>
+    {{/if}}
+</div>
+</nav>
+</header>
+</div>
