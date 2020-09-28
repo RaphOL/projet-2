@@ -1,4 +1,5 @@
 .big-container {
+  height: 7vh;
   display: flex;
   background-color: rgb(226, 233, 247);
   color: white;
@@ -31,6 +32,19 @@
 .logo-item {
   width: -webkit-fill-available;
   padding: 20px;
+  width: 200px;
+}
+
+#logo {
+  padding-bottom: 0;
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#big-container .logo {
+  display: block;
 }
 
 #imagelogo {
