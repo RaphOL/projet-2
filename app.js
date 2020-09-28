@@ -56,7 +56,6 @@ function eraseSessionMessage() {
   var count = 0; // initialize counter in parent scope and use it in inner function
   return function (req, res, next) {
 
-    console.log(req.session, "<<<<<<<<<<<//////////////");
     if (req.session.msg) {
       // only increment if session contains msg
       if (count) {

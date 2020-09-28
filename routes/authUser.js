@@ -27,9 +27,10 @@ router.post("/signin/user", async (req, res, next) => {
       delete userObject.password;
 
       req.session.currentUser = userObject;
+      console.log("-------->", req.session.currentUser);
 
       req.flash("success", "Successfully logged in...");
-      res.redirect("/profiluser");
+      res.redirect(`/profiluser/${req.session.currentUser._id}`);
     }
   }
 });
@@ -38,8 +39,13 @@ router.get("/signup/user", function (req, res, next) {
   res.render("signup/signupuser");
 });
 
-router.get("/profiluser", function (req, res, next) {
-  res.render("profiluser");
+router.get("/profiluser/:id", async (req, res, next) => {
+  //res.send("toto is my friend");
+  const myUser = req.params.id;
+
+  const userInfo = await User.findById(myUser);
+  console.log(userInfo, "<<<<<<<<<<<<<<<>>>>>>>");
+  res.render("profiluser", { user: userInfo });
 });
 
 router.post("/signup/user", async (req, res, next) => {
