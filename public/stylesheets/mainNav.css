@@ -74,6 +74,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transform: 1s ease 0.5s;
 }
 
 .Nav li {
@@ -117,11 +118,20 @@ i {
   }
 }
 
+@media screen and (max-width: 892px) {
+  #nav-container {
+    height: 20vh;
+  }
+  #logo {
+    width: 50%;
+  }
+}
+
 @media screen and (max-width: 578px) {
   .Nav {
     position: absolute;
     right: 0;
-    top: 10vh;
+    top: 40vh;
     height: 100%;
     width: 50%;
     display: flex;
@@ -132,5 +142,3 @@ i {
     height: 15vh;
   }
 }
-
-

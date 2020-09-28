@@ -30,3 +30,12 @@
   font-size: 30px;
   text-underline-position: under;
 }
+
+@media screen and (max-width: 600px){
+  #title1{
+    font-size: 40px;
+  }
+  #title2{
+    font-size: 25px;
+  }
+}
