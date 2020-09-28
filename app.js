@@ -55,5 +55,8 @@ app.use(function (err, req, res, next) {
 // routers
 app.use("/", require("./routes/index"));
 app.use("/", require("./routes/users"));
+// app.use("/", require("./routes/pilote"));
+app.use("/", require("./routes/authPilote"));
+// app.use("/", require("./routes/authUser"));
 
 module.exports = app;
