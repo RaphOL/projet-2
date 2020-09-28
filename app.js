@@ -1,57 +1,57 @@
-require ("dotenv"). config ();
-require ("./ config / mongodb"); // configuration initiale de la base de données
+require("dotenv").config();
+require("./config/mongodb"); // database initial setup
 
-var createError = require ("http-errors");
-var express = require ("express");
-var chemin = require ("chemin");
-var cookieParser = require ("cookie-parser");
-var logger = require ("morgan");
-var indexRouter = require ("./ routes / index");
-var usersRouter = require ("./ routes / users");
-var app = express ();
+var createError = require("http-errors");
+var express = require("express");
+var path = require("path");
+var cookieParser = require("cookie-parser");
+var logger = require("morgan");
+var indexRouter = require("./routes/index");
+var usersRouter = require("./routes/users");
+var app = express();
 
-///////////////////////////////
+/////////////////////////////
 
-const hbs = require ("hbs");
-const mongoose = require ("mangouste");
-// Peut être utilisé plus tard garder ça
-// session const = require ("session express");
-// const MongoStore = require ("connect-mongo") (session);
+const hbs = require("hbs");
+const mongoose = require("mongoose");
+//Can be util later keep that
+//const session = require("express-session");
+//const MongoStore = require("connect-mongo")(session);
 
-// voir la configuration du moteur
-// configuration initiale
-app.set ("vues", path.join (__ dirname, "vues"));
-app.set ("moteur de vue", "hbs");
-app.set ("vues", __dirname + "/ vues");
-hbs.registerPartials (__ dirname + "/ views / partials");
+// view engine setup
+// initial config
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "hbs");
+app.set("views", __dirname + "/views");
+hbs.registerPartials(__dirname + "/views/partials");
 
-app.use (logger ("dev"));
-app.use (express.json ());
-app.use (express.urlencoded ({extended: false}));
-app.use (cookieParser ());
-app.use (express.static (path.join (__ dirname, "public")));
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use ("/", indexRouter);
-app.use ("/ utilisateurs", usersRouter);
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
 
-// attraper 404 et transmettre au gestionnaire d'erreurs
-app.use (function (req, res, next) {
-  suivant (createError (404));
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
 });
 
-// gestionnaire d'erreurs
-app.use (function (err, req, res, next) {
-  // définir les locaux, ne fournissant qu'une erreur de développement
+// error handler
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get ("env") === "développement"? err: {};
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
-  // rendre la page d'erreur
-  res.status (err.status || 500);
-  res.render ("erreur");
+  // render the error page
+  res.status(err.status || 500);
+  res.render("error");
 });
 
-// routeurs
-app.use ("/", require ("./ routes / index"));
-app.use ("/", require ("./ routes / users"));
+// routers
+app.use("/", require("./routes/index"));
+app.use("/", require("./routes/users"));
 
-module.exports = application;
+module.exports = app;
