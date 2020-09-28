@@ -70,7 +70,7 @@ router.post("/signup/user", async (req, res, next) => {
 router.get("/logout", async (req, res, next) => {
   console.log(req.session.currentUser);
   req.session.destroy(function (err) {
-    res.redirect("/signin/user");
+    res.redirect("/");
   });
 });
 
