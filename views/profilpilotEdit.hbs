@@ -1,0 +1,72 @@
+<h1></h1>
+<h1></h1>
+<form class="ui form" action="/profilpilotEdit/{{pilot._id}}" method="POST">
+  <h4 class="ui dividing header">Pilote Information</h4>
+  <div class="field">
+    <label>Name</label>
+    <div class="two fields">
+      <div class="field">
+        <input type="text" name="{{pilot.name}}" placeholder="First Name" value="{{pilot.name}}">
+      </div>
+      <div class="field">
+        <input type="text" name="{{pilot.lastname}}" placeholder="Last Name" value="{{pilot.lastname}}">
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label>Address</label>
+    <div class="fields">
+      <div class="eight wide field">
+        <input type="text" name="{{pilot.address}}" placeholder="42 rue de la poupée qui tousse">
+      </div>
+      <div class="four wide field">
+        <input type="text" name="{{pilot.city}}" placeholder="Paris">
+      </div>
+      <div class="four wide field">
+        <input type="text" name="{{pilot.zipCode}}" placeholder="75116">
+      </div>
+    </div>
+  </div>
+
+
+
+  <h4 class="ui dividing header">Pilote Details</h4>
+  <div class="field">
+    <label>License</label>
+
+    <div class="fields">
+      <div class="eight wide field">
+        <input type="text" name="{{pilot.licenceId}}" placeholder="FJ42PD1337">
+      </div>
+      <div class="four wide field">
+        <input type="text" name="{{pilot.licenceType}}" placeholder="Licence type ...">
+      </div>
+      <div class="four wide field">
+        <input type="text" name="{{pilot.deliveryCountry}}" placeholder="France">
+      </div>
+    </div>
+      <div class="two fields">
+      <div class="field">
+        <input type="date" name="{{pilot.issueDate}}" placeholder="">
+      </div>
+      <div class="field">
+        <input type="date" name="{{pilot.expiryDate}}" placeholder="">
+      </div>
+    </div>
+
+   <h4 class="ui dividing header">Other information </h4>
+    <div class="fields">
+      <div class="five wide field">
+        <input type="text" name="{{pilot.ratingPilote}}" placeholder="ratingPilote">
+      </div>
+      <div class="five wide field">
+        <input type="text" name="{{pilot.medicale}}" placeholder="medicale ...">
+      </div>
+      <div class="five wide field">
+        <input type="text" name="{{pilot.flc055}}" placeholder="flc055">
+      </div>
+    </div>
+
+  
+  <div class="ui button" tabindex="0">Submit Order</div>
+</form>
