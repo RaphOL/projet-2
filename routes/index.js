@@ -18,4 +18,15 @@ router.get("/signup/user", function (req, res, next) {
   res.render("signup/signupuser");
 });
 
+
+router.get("/signin/pilote", function(req, res, next) {
+  res.resnder("signin/singinpilote");
+});
+
+router.get("/signup/pilote", function(req, res, next) {
+  res.resnder("signup/singinuppilote");
+});
+
+
+
 module.exports = router;
