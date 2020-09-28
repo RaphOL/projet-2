@@ -1,5 +1,7 @@
 @import url("about.css");
 @import url("index.css");
+@import url("signin.css");
+@import url("signup.css");
 
 * {
   box-sizing: border-box;
