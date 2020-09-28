@@ -17,6 +17,7 @@ const mongoose = require("mongoose");
 //Can be util later keep that
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const flash = require("connect-flash");
 
 // view engine setup
 // initial config
@@ -32,10 +33,56 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    cookie: { maxAge: 600000 }, // in millisec
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60, // 1 day
+    }),
+    saveUninitialized: true,
+    resave: true,
+  })
+);
+
+
+
+app.use(flash());
+
+// Custom connect-flash (req.flash) middleware.
+function eraseSessionMessage() {
+  // Closure time baby.
+  var count = 0; // initialize counter in parent scope and use it in inner function
+  return function (req, res, next) {
+
+    console.log(req.session, "<<<<<<<<<<<//////////////");
+    if (req.session.msg) {
+      // only increment if session contains msg
+      if (count) {
+        // if count greater than 0
+        count = 0; // reset counter
+        req.session.msg = null; // reset message
+      }
+      res.locals.msg = req.session.msg; // expose msg to the views ! => you can access it with {{msg}}
+      ++count; // increment counter
+    }
+    next(); // continue to the requested route
+  };
+}
+
+
+app.use(require("./middlewares/exposeFlashMessage"));
+//app.use(checkloginStatus);
+app.use(eraseSessionMessage());
+
+
+
 app.use("/", require("./routes/index"));
 app.use("/", require("./routes/users"));
 app.use("/", require("./routes/authPilote"));
 app.use("/", require("./routes/authUser"));
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
