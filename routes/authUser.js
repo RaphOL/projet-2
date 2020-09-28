@@ -22,12 +22,10 @@ router.post("/signin/user", async (req, res, next) => {
       res.redirect("/signin/user");
     } else {
       const userDocument = { ...foundUser };
-      console.log(userDocument);
       const userObject = foundUser.toObject();
       delete userObject.password;
 
       req.session.currentUser = userObject;
-      console.log("-------->", req.session.currentUser);
 
       req.flash("success", "Successfully logged in...");
       res.redirect(`/profiluser/${req.session.currentUser._id}`);
@@ -40,11 +38,9 @@ router.get("/signup/user", function (req, res, next) {
 });
 
 router.get("/profiluser/:id", async (req, res, next) => {
-  //res.send("toto is my friend");
   const myUser = req.params.id;
 
   const userInfo = await User.findById(myUser);
-  console.log(userInfo, "<<<<<<<<<<<<<<<>>>>>>>");
   res.render("profiluser", { user: userInfo });
 });
 
@@ -68,7 +64,6 @@ router.post("/signup/user", async (req, res, next) => {
 });
 
 router.get("/logout", async (req, res, next) => {
-  console.log(req.session.currentUser);
   req.session.destroy(function (err) {
     res.redirect("/");
   });
