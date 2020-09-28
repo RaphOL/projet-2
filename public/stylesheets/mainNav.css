@@ -1,8 +1,9 @@
 .big-container {
   display: flex;
-  background-color: cornflowerblue;
+  background-color: rgb(226, 233, 247);
   color: white;
   font-weight: bold;
+  position: fixed;
 }
 
 .small-container {

@@ -10,12 +10,12 @@ router.get("/about", function (req, res, next) {
   res.render("about");
 });
 
-router.get("/signin", function (req, res, next) {
-  res.render("signin");
+router.get("/signin/signinuser", function (req, res, next) {
+  res.render("signin/user");
 });
 
-router.get("/signup", function (req, res, next) {
-  res.render("signup");
+router.get("/signup/signupuser", function (req, res, next) {
+  res.render("signup/user");
 });
 
 module.exports = router;
