@@ -8,6 +8,7 @@ const travelSchema = new Schema({
   Price: Number,
   Destination: String,
   Aircraft: String,
+  Pilot : {type: String}
 });
 
 const Travel = mongoose.model("Travel", travelSchema);

@@ -109,19 +109,12 @@ i {
 }
 
 @media screen and (max-width: 500px) {
-  .big-container {
+  .Nav {
     position: absolute;
     right: 0;
     top: 10vh;
     height: 100%;
     width: 20%;
-    background: rgb(34, 193, 195);
-    background: linear-gradient(
-      11deg,
-      rgba(34, 193, 195, 1) 0%,
-      rgba(63, 129, 140, 1) 0%,
-      rgba(93, 64, 84, 1) 75%
-    );
     display: flex;
     flex-direction: column;
     align-items: center;
