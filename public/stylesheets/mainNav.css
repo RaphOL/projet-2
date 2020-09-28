@@ -1,4 +1,4 @@
-.big-container {
+#nav-container {
   width: 100%;
   height: 7vh;
   display: flex;
@@ -45,7 +45,7 @@
 #logo {
   /** don't touch */
   padding-bottom: 20px;
-  width: 30%;
+  width: 40%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -63,7 +63,7 @@
 }
 
 #nav {
-  width: 50%;
+  width: 60%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -108,15 +108,29 @@ i {
   background-color: inherit;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
+  #nav-container {
+    height: 15vh;
+  }
+  #logo {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 578px) {
   .Nav {
     position: absolute;
     right: 0;
     top: 10vh;
     height: 100%;
-    width: 20%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+  #nav-container {
+    height: 15vh;
+  }
 }
+
+
