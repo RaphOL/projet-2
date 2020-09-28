@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const salt = 10;
 
 router.get("/signin/user", function (req, res, next) {
-  res.render("signin/registerUser");
+  res.render("signin/signinuser");
 });
 
 router.post("/signin/user", async (req, res, next) => {

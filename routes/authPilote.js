@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 
 
 router.get("/signin/pilot", function (req, res, next) {
-    res.render("signin/registerPilot");
+    res.render("signin/signinpilot");
   });
 
   router.post("/signin/pilot", async (req, res, next) => {
