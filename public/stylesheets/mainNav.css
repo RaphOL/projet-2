@@ -44,7 +44,7 @@
 #logo {
   /** don't touch */
   padding-bottom: 20px;
-  width: 3s0%;
+  width: 30%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -77,16 +77,25 @@
 
 .Nav li {
   list-style: none;
+  display: flex;
+  align-items: center;
 }
 
-.Nav li div a {
-  color: #fff;
-  background-color: #333;
+.Nav li p a {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 3px;
   transition: all 1s ease-out;
 }
 
+.Nav li div a {
+  color: rgb(239, 243, 247);
+  background-color: inherit;
+  transition: all 1s ease-out;
+}
+.Nav li p a,
 .Nav li div a:hover,
 .Nav li div a:focus {
-  color: #333;
-  background-color: #fff;
+  color: rgb(29, 123, 167);
+  background-color: inherit;
 }
