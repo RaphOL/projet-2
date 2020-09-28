@@ -6,9 +6,9 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-// var indexRouter = require("./routes/index");
-// var usersRouter = require("./routes/users");
-// var piloteRouter = require("./routes/pilote");
+var indexRouter = require("./routes/index");
+var usersRouter = require("./routes/users");
+var piloteRouter = require("./routes/pilote");
 var app = express();
 
 /////////////////////////////
@@ -55,8 +55,8 @@ app.use(function (err, req, res, next) {
 // routers
 app.use("/", require("./routes/index"));
 app.use("/", require("./routes/users"));
-// app.use("/", require("./routes/pilote"));
+app.use("/", require("./routes/pilote"));
 app.use("/", require("./routes/authPilote"));
-// app.use("/", require("./routes/authUser"));
+app.use("/", require("./routes/authUser"));
 
 module.exports = app;
