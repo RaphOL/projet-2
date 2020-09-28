@@ -1,0 +1,12 @@
+<div id="mainDiv">
+    <h1>Welcome back {{pilot.name}}</h1>
+    {{!-- <img src="{{pilot.image}}" alt="img-user"> --}}
+    <div id="profileId">
+        <p>{{pilot.name}}</p>
+        <p>{{pilot.lastname}}</p>
+        <p>{{pilot.email}}</p>
+        <form action="/profilpilotEdit/:id" method="get">
+            <button id="profileIdButton">Edit your profil!</button>
+        </form>
+    </div>
+</div>
