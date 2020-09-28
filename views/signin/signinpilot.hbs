@@ -6,16 +6,8 @@
   {{#if msg}}
   <p class="message {{msg.status}}">{{msg.text}}</p>
   {{/if}}
-  <form method="post" action="/signup/pilot" method="post" id="form_pilot">
-    <div class="form-item-wrapper flexed-item">
-      <label for="firstname" class="label-ref label">Name</label>
-      <input id="firstname" type="text" class="input-text input" placeholder="Albert" name="name" required value="yo">
-    </div>
-    <div class="form-item-wrapper flexed-item">
-      <label for="lastname" class="label-ref label">Last Name</label>
-      <input id="lastname" type="text" class="input-text input" placeholder="Biceps" required name="lastname"
-        value="gui">
-    </div>
+  <form method="post" action="/signin/pilot" method="post" id="form_pilot">
+    
     <div class="form-item-wrapper flexed-item">
       <label for="email" class="label-ref label">Email</label>
       <input id="email" type="email" class="input-text input" placeholder="albert.biceps@gmail.com" name="email"
@@ -26,7 +18,6 @@
       <input id="password" type="password" class="input-text input" placeholder="••••••" name="password" required
         value="1234">
     </div>
-    <button class="button-primary white">Create Account</button>
+    <button class="button-primary white">Sign in</button>
   </form>
-  <p class="form-sub-infos">Already have an account ? <a href="/signin/pilot" class="button-link-form">Sign In</a></p>
-</section>
+ </section>

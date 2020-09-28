@@ -5,15 +5,8 @@
     {{#if msg}}
     <p class="message {{msg.status}}">{{msg.text}}</p>
     {{/if}}
-    <form method="post" action="/signup/user">
-        <div>
-            <label for="firstname">Name</label>
-            <input id="firstname" name="name" type="text" placeholder="Raphaelle" required value="Raph">
-        </div>
-        <div>
-            <label for="lastname">Last Name</label>
-            <input id="lastname" name="lastname" type="text" placeholder="Albert" required value="Albert">
-        </div>
+    <form method="post" action="/signin/user">
+     
         <div>
             <label for="email">Email</label>
             <input id="email" name="email" type="email" placeholder="raph.albert@gmail.com" required
@@ -23,7 +16,7 @@
             <label for="password">Password</label>
             <input id="password" name="password" type="password" placeholder="••••••" required value="1234">
         </div>
-        <button>Create Account</button>
+        <button>sign in</button>
     </form>
-    <p class="form-sub-infos">Already have an account ? <a href="/signin/user">Sign In</a></p>
+  
 </section>
