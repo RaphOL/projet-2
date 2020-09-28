@@ -6,9 +6,9 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var piloteRouter = require("./routes/pilote");
+// var indexRouter = require("./routes/index");
+// var usersRouter = require("./routes/users");
+// var piloteRouter = require("./routes/pilote");
 var app = express();
 
 /////////////////////////////
@@ -16,8 +16,8 @@ var app = express();
 const hbs = require("hbs");
 const mongoose = require("mongoose");
 //Can be util later keep that
-//const session = require("express-session");
-//const MongoStore = require("connect-mongo")(session);
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 
 // view engine setup
 // initial config
