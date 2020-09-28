@@ -76,9 +76,13 @@
 }
 
 .Nav li {
+  padding-top: 2vh;
   list-style: none;
   display: flex;
   align-items: center;
+}
+i{
+  width: 50px;
 }
 
 .Nav li p a {
@@ -93,7 +97,10 @@
   background-color: inherit;
   transition: all 1s ease-out;
 }
-.Nav li p a,
+.Nav li p a:hover {
+  font-size: larger;
+}
+
 .Nav li div a:hover,
 .Nav li div a:focus {
   color: rgb(29, 123, 167);
