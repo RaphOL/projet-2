@@ -1,0 +1,25 @@
+<section>
+    <header>
+        <h1>Welcome dear Pilote</h1>
+        <p>Enjoy yourself and be comfortable before your next fly!</p>
+    </header>
+
+    {{#if error_msg}}
+    <div>
+        {{error_msg}}
+    </div>
+    {{/if}}
+
+    <form method="post" action="/signin/pilote">
+        <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="albert.biceps@gmail.com" required
+                value="yo@raph.com">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="••••••" required value="1234">
+        </div>
+        <button>Log in !</button>
+    </form>
+    <p><a href="/signup">Don't have an account yet ?</a></p>
