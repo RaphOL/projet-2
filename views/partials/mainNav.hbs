@@ -7,31 +7,23 @@
     <div id="nav">
             <div id="about">About</div>
             <ul class="Nav">
-
+                {{#unless isLoggedIn}}
                 <li>
                     <p><a href="#">Passenger</a> </p>
                     <div>
                         <a href="/signin/user">Sign in</a> <a href="/signup/user">Sign up</a>
                     </div>
-
                 </li>
-
+                {{/unless}}
+                {{#unless isLoggedIn}}
                   <li>
                     <p><a href="#">Pilot</a></p>
                     <div>
                         <a href="/signin/pilot">Sign in</a> <a href="/signup/pilot">Sign up</a>
                     </div>
-
                 </li>
-                
-
+                {{/unless}}
             </ul>
-
-
-
-
-
-
             {{!-- {{#if isLoggedIn}}
         <li class="nav-item">
             <a id="navA" href="/search">Search for a flight</a>

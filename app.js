@@ -6,7 +6,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-
+const Pilot = require("./models/Pilote");
 
 var app = express();
 
@@ -52,8 +52,19 @@ app.use(flash());
 
 function checkloginStatus(req, res, next) {
   res.locals.user = req.session.currentUser ? req.session.currentUser : null;
+
   // access this value @ {{user}} or {{user.prop}} in .hbs
   res.locals.isLoggedIn = Boolean(req.session.currentUser);
+  // // const checkUser = res.locals.user._id;
+  // // const isPilotUser = Pilot.findOne({checkUser});
+
+  // if (!isPilotUser){
+  //   console.log("not a pilot");
+  // }else{
+  //   console.log("is a pilot:", isPilotUser, ">>>>>>>>>>>>>>>||||||||||||||||\o/");
+  // }
+
+
   // access this value @ {{isLoggedIn}} in .hbs
   next(); // continue to the requested route
 }
