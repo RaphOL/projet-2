@@ -50,6 +50,16 @@ app.use(
 
 app.use(flash());
 
+function checkloginStatus(req, res, next) {
+  res.locals.user = req.session.currentUser ? req.session.currentUser : null;
+  // access this value @ {{user}} or {{user.prop}} in .hbs
+  res.locals.isLoggedIn = Boolean(req.session.currentUser);
+  // access this value @ {{isLoggedIn}} in .hbs
+  next(); // continue to the requested route
+}
+
+
+
 // Custom connect-flash (req.flash) middleware.
 function eraseSessionMessage() {
   // Closure time baby.
@@ -72,10 +82,8 @@ function eraseSessionMessage() {
 
 
 app.use(require("./middlewares/exposeFlashMessage"));
-//app.use(checkloginStatus);
+app.use(checkloginStatus);
 app.use(eraseSessionMessage());
-
-
 
 app.use("/", require("./routes/index"));
 app.use("/", require("./routes/users"));
