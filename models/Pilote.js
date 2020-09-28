@@ -13,7 +13,8 @@ const piloteSchema = new Schema({
   licenceType: String,
   ratingPilote: [String],
   medicale: String,
-  flc055: String
+  flc055: String,
+  isPilote: Boolean,
 });
 
 const PiloteModel = mongoose.model("Pilote", piloteSchema);

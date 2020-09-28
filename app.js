@@ -50,19 +50,29 @@ app.use(
 
 app.use(flash());
 
-function checkloginStatus(req, res, next) {
+async function checkloginStatus(req, res, next) {
   res.locals.user = req.session.currentUser ? req.session.currentUser : null;
 
   // access this value @ {{user}} or {{user.prop}} in .hbs
   res.locals.isLoggedIn = Boolean(req.session.currentUser);
-  // // const checkUser = res.locals.user._id;
-  // // const isPilotUser = Pilot.findOne({checkUser});
+  let  isPilotUser;
+  if(res.locals.user){
+    let checkUser = res.locals.user._id;
+    try{
+      isPilotUser = await Pilot.findById(checkUser);
+    } catch {
+      isPilotUser = "";
+    }
+  }
+  // const checkUser = res.locals.user._id;
 
-  // if (!isPilotUser){
-  //   console.log("not a pilot");
-  // }else{
-  //   console.log("is a pilot:", isPilotUser, ">>>>>>>>>>>>>>>||||||||||||||||\o/");
-  // }
+  // const isPilotUser = Pilot.findOne({checkUser});
+
+  if (!isPilotUser){
+    console.log("not a pilot");
+  }else{
+    console.log("is a pilot:");
+  }
 
 
   // access this value @ {{isLoggedIn}} in .hbs

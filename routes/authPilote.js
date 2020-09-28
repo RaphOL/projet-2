@@ -60,4 +60,12 @@ router.get("/signin/pilot", function (req, res, next) {
      }
   });
 
+
+router.get("/logout", async (req, res, next) => {
+    console.log(req.session.currentUser);
+    req.session.destroy(function (err) {
+      res.redirect("/");
+    });
+});
+
 module.exports = router;
