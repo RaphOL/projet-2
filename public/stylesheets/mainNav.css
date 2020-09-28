@@ -7,6 +7,7 @@
   color: rgb(53, 123, 156);
   font-weight: bold;
   position: fixed;
+  margin-bottom: 2vh;
 }
 
 .small-container {
@@ -81,7 +82,7 @@
   display: flex;
   align-items: center;
 }
-i{
+i {
   width: 50px;
 }
 
@@ -89,13 +90,13 @@ i{
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 3px;
-  transition: all 1s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .Nav li div a {
   color: rgb(239, 243, 247);
   background-color: inherit;
-  transition: all 1s ease-out;
+  transition: all 0.5s ease-out;
 }
 .Nav li p a:hover {
   font-size: larger;
@@ -105,4 +106,24 @@ i{
 .Nav li div a:focus {
   color: rgb(29, 123, 167);
   background-color: inherit;
+}
+
+@media screen and (max-width: 500px) {
+  .big-container {
+    position: absolute;
+    right: 0;
+    top: 10vh;
+    height: 100%;
+    width: 20%;
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+      11deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(63, 129, 140, 1) 0%,
+      rgba(93, 64, 84, 1) 75%
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
