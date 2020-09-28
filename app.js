@@ -41,21 +41,19 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
+// gestionnaire d'erreurs
+app.use (function (err, req, res, next) {
+  // définir les locaux, ne fournissant qu'une erreur de développement
   res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
+  res.locals.error = req.app.get ("env") === "développement"? err: {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render("error");
+  // rendre la page d'erreur
+  res.status (err.status || 500);
+  res.render ("erreur");
 });
 
-// routers
-app.use("/", require("./routes/index"));
-app.use("/", require("./routes/users"));
-app.use("/", require("./routes/pilote"));
+// routeurs
+app.use ("/", require ("./ routes / index"));
+app.use ("/", require ("./ routes / users"));
 
-
-module.exports = app;
+module.exports = application;
