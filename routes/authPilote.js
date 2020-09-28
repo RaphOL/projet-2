@@ -25,8 +25,8 @@ router.get("/signin/pilot", function (req, res, next) {
         return res.redirect("/signin/pilot");
       }
       req.session.currentUser = foundPilot;
-      console.log("Pilot: ",req.session.currentUser);
-      res.redirect("/");
+      
+      res.redirect(`/profilpilote/${foundPilot._id}`);
     } catch (err) {
       next(err);
     }
@@ -48,16 +48,23 @@ router.get("/signin/pilot", function (req, res, next) {
         // Add some salts just a little
         const salt = 10;
         const hashedPassword = bcrypt.hashSync(password, salt);
-        await Pilot.create({
+        const pilotCreate = await Pilot.create({
             name,
             email,
             lastname,
             password: hashedPassword,
         });
-        res.redirect("/");
+       res.redirect(`/profilpilote/${pilotCreate._id}`);
      } catch (err) {
        next(err);
      }
+  });
+
+  router.get("/profilpilote/:id", async (req, res, next) => {
+    const pilot = req.params.id;
+  
+    const pilotInfo = await Pilot.findById(pilot);
+    res.render("profilpilot", { pilot: pilotInfo });
   });
 
 
