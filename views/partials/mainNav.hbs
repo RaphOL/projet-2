@@ -6,10 +6,9 @@
 
     <div id="nav">
 
-    </div>
-    <ul class="small-container">
-        <li class="nav-item">
-            <a id="navA" href="/about">About us</a>
+        {{!-- <ul class="small-container">
+            <li class="nav-item">
+            <a id="about" href="/about">About us</a>
         </li>
         <li class="nav-item">
             <a id="navA" href="/signin/user">SI pa</a>
@@ -18,15 +17,35 @@
         <li class="nav-item">
             <a id="navA" href="/signin/pilot">SI pi</a>
             <a id="navA" href="/signup/pilot">SU pi</a>
-        </li>
+        </li> --}}
+            <div id="about">About</div>
+            <ul class="Nav">
+
+                <li>
+                    <p><a href="">Passenger</a> </p>
+                    <div>
+                        <a href="/signin/user">Sign in</a> <a href="/signup/user">Sign up</a>
+                    </div>
+
+                </li>
+
+                  <li>
+                    <p><a href="">Pilot</a></p>
+                    <div>
+                        <a href="/signin/pilot">Sign in</a> <a href="/signup/pilot">Sign up</a>
+                    </div>
+
+                </li>
+                
+
+            </ul>
 
 
 
 
 
 
-
-        {{#if isLoggedIn}}
+            {{!-- {{#if isLoggedIn}}
         <li class="nav-item">
             <a id="navA" href="/search">Search for a flight</a>
         </li>
@@ -38,7 +57,8 @@
         <a id="navA" href="/logout" class="nav-item">
             <span class="btn-text">Log out</span>
         </a>
-        {{/if}}
-    </ul>
+        {{/if}} --}}
+        </ul>
+    </div>
 </div>
 <hr>

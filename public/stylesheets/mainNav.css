@@ -1,8 +1,10 @@
 .big-container {
+  width: 100%;
   height: 7vh;
   display: flex;
-  background-color: rgb(199, 217, 231);
-  color: rgb(48, 124, 160);
+  justify-content: space-between;
+  background-color: rgb(239, 243, 247);
+  color: rgb(53, 123, 156);
   font-weight: bold;
   position: fixed;
 }
@@ -16,29 +18,33 @@
 }
 
 .nav-item {
-  display: flex;
+  display: block;
   width: 30%;
-  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#navA {
+#about {
   list-style-type: none;
   text-decoration: none;
   outline: none;
   cursor: pointer;
   color: rgb(78, 147, 168);
-  
 }
 
 .logo-item {
+  /** don't touch */
   width: -webkit-fill-available;
   padding: 20px;
   width: 200px;
 }
 
 #logo {
+  /** don't touch */
   padding-bottom: 20px;
-  width: 20%;
+  width: 3s0%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -49,7 +55,38 @@
 }
 
 #imagelogo {
+  /** don't touch */
   padding-top: 30px;
   padding-left: 60px;
   width: 20%;
+}
+
+#nav {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Nav {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Nav li {
+  list-style: none;
+}
+
+.Nav li div a {
+  color: #fff;
+  background-color: #333;
+  transition: all 1s ease-out;
+}
+
+.Nav li div a:hover,
+.Nav li div a:focus {
+  color: #333;
+  background-color: #fff;
 }
