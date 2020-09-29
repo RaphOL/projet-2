@@ -1,13 +1,83 @@
-<div id="mainDiv">
-    <h1>Welcome back {{pilot.name}}</h1>
-    {{!-- <img src="{{pilot.image}}" alt="img-user"> --}}
-    <div id="profileId">
-        <p>{{pilot.name}}</p>
-        <p>{{pilot.lastname}}</p>
-        <p>{{pilot.email}}</p>
-        
-        <form action="/profilpilotEdit/{{pilot._id}}" method="get">
-            <button id="profileIdButton">Edit your profil!</button>
-        </form>
+<section style="margin-top: 8vh;">
+<div class="ui placeholder segment">
+  <div class="ui two column very relaxed stackable grid">
+    <div class="column">
+      <div class="ui form">
+        <div class="field">
+          <label>Username: </label>
+          <div class="ui left icon input">
+            {{!-- <i class="user icon"></i> --}}
+             {{pilot.name}}
+          </div>
+        </div>
+        <div class="field">
+          <label>Lastname: </label>
+          <div class="ui left icon input">
+            {{pilot.lastname}}
+          </div>
+        </div>
+         <div class="field">
+          <label>Email: </label>
+          <div class="ui left icon input">
+            {{pilot.email}}
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="middle aligned column">
+      <form action="/profilpilotEdit/{{pilot._id}}" method="get">
+            <button class="ui primary button">Edit your profil!</button>
+        </form>
+
+    </div>
+  </div>
+  <div class="ui vertical divider">
+  </div>
 </div>
+
+<div class="">
+  <h3 class="manage-products-title">Manage your Filght</h3>
+  <table class="ui celled table">
+    <thead>
+      <tr class="table-row">
+        <th class="table-head">Flight date</th>
+        <th class="table-head">Departure</th>
+        <th class="table-head">Destination</th>
+        <th class="table-head">Departure Time</th>
+        <th class="table-head">Arrival Time</th>
+        <th class="table-head">Aircraft</th>
+        <th class="table-head">Edit</th>
+        <th class="table-head">Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{!-- {{#each sneakers}} --}}
+      {{!-- <tr class="table-row"> --}}
+        {{!-- {{> dashboard_sneaker_row}} --}}
+      {{!-- </tr> --}}
+      {{!-- {{/each}} --}}
+      {{!-- {{#unless sneakers}} --}}
+      <tr>
+        {{!-- <td colspan="8" class="selectable">sorry no flight yet</td> --}}
+         <td colspan="8" class="selectable">sorry no flight yet</td>
+      </tr>
+      {{!-- {{/unless}} --}}
+    </tbody>
+    <tfoot class="full-width">
+    <tr>
+      <th colspan="8>
+        <div class="ui right floated small primary labeled icon button">
+          <i class="plane icon"></i> Add Flight
+        </div>
+        <div class="ui small button">
+          Create
+        </div>
+       
+      </th>
+    </tr>
+  </tfoot>
+  </table>
+</div>
+
+</section>
