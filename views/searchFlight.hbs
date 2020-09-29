@@ -1,7 +1,8 @@
 <section id="search" class="section s1">
-    <form action="/search" method="post"></form>
+    <form id="search-flight-form" action="/search" method="post">
         <div class="ui fluid category search">
             <div class="ui icon input">
+                <label for="departure"></label>
                 <input class="prompt" type="text" placeholder="Where from?" name="departure" id="departure"
                     type="search">
                 <i class="search icon"></i>
@@ -10,7 +11,7 @@
         </div>
         <div class="ui fluid category search">
             <div class="ui icon input">
-                <input class="prompt" type="text" placeholder="When?" name="when" id="when" type="search">
+                <input class="prompt" type="date-time" placeholder="When?" name="departureTime" id="when" type="search">
                 <i class="search icon"></i>
             </div>
             <div class="results"></div>
@@ -38,5 +39,5 @@
         <button class="ui primary button" type="submit" aria-label="Search">
             Search
         </button>
-
-    </section>
+    </form>
+</section>
