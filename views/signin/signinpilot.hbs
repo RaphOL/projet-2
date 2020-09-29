@@ -6,11 +6,14 @@
 
     <div class="ui middle aligned center aligned grid">
       <div class="column">
-        <h2 class="ui teal image header">
+        <h2 class="ui blue image header">
           <div class="content">
             Sign-in to your account
           </div>
         </h2>
+        {{#if msg}}
+        <p class="message {{msg.status}}">{{msg.text}}</p>
+        {{/if}}
         <form method="POST" action="/signin/pilot" class="ui large form">
           <div class="ui stacked segment">
             <div class="field">
@@ -27,7 +30,7 @@
                 <input id="password" type="password" name="password" placeholder="********">
               </div>
             </div>
-            <button class="ui fluid large teal submit button">Login</button>
+            <button class="ui fluid large blue submit button">Login</button>
           </div>
 
         </form>
@@ -44,3 +47,29 @@
     {{/if}}
   </section>
 </div>
+
+{{!-- ANCIENNE VERSION --}}
+
+{{!-- <section id="section-signup-pilot">
+  <header class="form-header">
+    <h1 class="form-title">Start your Flight journey</h1>
+    <p class="form-subtitle">Enjoy yourself and be comfortable </p>
+  </header>
+  {{#if msg}}
+  <p class="message {{msg.status}}">{{msg.text}}</p>
+  {{/if}}
+  <form method="post" action="/signin/pilot" method="post" id="form_pilot">
+    
+    <div class="form-item-wrapper flexed-item">
+      <label for="email" class="label-ref label">Email</label>
+      <input id="email" type="email" class="input-text input" placeholder="albert.biceps@gmail.com" name="email"
+        required value="yo@gui.com">
+    </div>
+    <div class="form-item-wrapper flexed-item">
+      <label for="password" class="label-ref label">Password</label>
+      <input id="password" type="password" class="input-text input" placeholder="••••••" name="password" required
+        value="1234">
+    </div>
+    <button class="button-primary white">Sign in</button>
+  </form>
+ </section> --}}

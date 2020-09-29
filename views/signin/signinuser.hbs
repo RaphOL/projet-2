@@ -6,11 +6,14 @@
 
     <div class="ui middle aligned center aligned grid">
       <div class="column">
-        <h2 class="ui teal image header">
+        <h2 class="ui blue image header">
           <div class="content">
             Sign-in to your account
           </div>
         </h2>
+        {{#if msg}}
+        <p class="message {{msg.status}}">{{msg.text}}</p>
+        {{/if}}
         <form method="POST" action="/signin/pilot" class="ui large form">
           <div class="ui stacked segment">
             <div class="field">
@@ -27,7 +30,7 @@
                 <input id="password" type="password" name="password" placeholder="********">
               </div>
             </div>
-            <button class="ui fluid large teal submit button">Login</button>
+            <button class="ui fluid large blue submit button">Login</button>
           </div>
 
         </form>
@@ -44,3 +47,28 @@
     {{/if}}
   </section>
 </div>
+
+{{!-- ANCIENNE VERSION --}}
+
+{{!-- <section id="section-signup-user">
+    <header>
+        <h1>Start flying!</h1>
+    </header>
+    {{#if msg}}
+    <p class="message {{msg.status}}">{{msg.text}}</p>
+    {{/if}}
+    <form method="post" action="/signin/user">
+     
+        <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="raph.albert@gmail.com" required
+                value="raph.albert@gmail.com">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="••••••" required value="1234">
+        </div>
+        <button>sign in</button>
+    </form>
+  
+</section> --}}

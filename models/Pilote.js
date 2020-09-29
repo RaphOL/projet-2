@@ -6,14 +6,20 @@ const piloteSchema = new Schema({
   lastname: String,
   email: String,
   password: String,
+  address: String,
+  city:String,
+  zipCode:String,
   licenceId: String,
+  licenceType: String,
+  deliveryCountry: String,
   issueDate: Date,
   expiryDate: Date,
-  deliveryCountry: String,
-  licenceType: String,
+
   ratingPilote: [String],
   medicale: String,
   flc055: String,
+
+
   isPilote: Boolean,
 });
 
