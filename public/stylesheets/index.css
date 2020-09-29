@@ -110,7 +110,7 @@ i {
 }
 
 #bloc4 {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 #column {
@@ -123,6 +123,11 @@ i {
 
 #bloc2p {
   font-weight: 900;
+}
+
+#boutton1,
+#boutton2 {
+  color: white;
 }
 
 #bloc4 {
@@ -154,7 +159,7 @@ i {
 
 #bloc5flex {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 footer {
@@ -163,6 +168,7 @@ footer {
   text-align: center;
   padding-top: 20px;
   font-weight: 600;
+  color: rgb(53, 123, 156);
 }
 
 #end {
