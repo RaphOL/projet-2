@@ -40,6 +40,10 @@
   }
 }
 
+.b1 {
+  height: 400px;
+}
+
 #hpblocs {
   display: flex;
   justify-content: center;
@@ -78,11 +82,13 @@ i {
 #flexbloc1 {
   display: flex;
   background-color: #eff3f7;
+  width: 100%;
 }
 
 #flexbloc2 {
   display: flex;
   background-color: #eff3f7;
+  width: 100%;
 }
 
 .item {
@@ -93,12 +99,18 @@ i {
   margin-top: 60px;
 }
 
+#flexchild {
+  display: flex;
+  flex-direction: column;
+}
+
 #mainBloc {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #eff3f7;
   /* margin-left: 8%; */
 }
 
@@ -153,8 +165,8 @@ i {
   font-size: 25px;
 }
 
-#bloc5 {
-  margin-bottom: 60px;
+.b5 {
+  height: 400px;
 }
 
 #bloc5flex {
