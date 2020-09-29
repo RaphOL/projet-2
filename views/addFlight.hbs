@@ -23,11 +23,21 @@
             <div class="fields">
                 <div class="seven wide field">
                     <label for="aircaft">aircaft</label>
-                    <input name="aircraft" type="text" placeholder="12 Wide">
+                    {{!-- <input name="aircraft" type="text" placeholder="12 Wide"> --}}
+
+                    <select class="ui dropdown" name="Aircraft">
+                         <option value="">Aircraft</option>
+                         <option value="C172">C172</option>
+                         <option value="C182">C182</option>
+                          <option value="DR400">DR400</option>
+                    </select>
+
+
+
                 </div>
                 <div class="two wide field">
                     <label for="immatriculation">immatriculation</label>
-                    <input name="immatricualtion" type="text" placeholder="F-XXXX">
+                    <input name="immatriculation" type="text" placeholder="F-XXXX">
                 </div>
             </div>
             <div class="fields">
