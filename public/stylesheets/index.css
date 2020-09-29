@@ -72,10 +72,6 @@ i {
   padding-bottom: 30px;
 }
 
-#phototemoignage {
-  width: 300px;
-}
-
 footer {
   background-color: #eff3f7;
 }
@@ -117,4 +113,37 @@ footer {
   padding-bottom: 20px;
   /* text-align: center; */
   color: #006bb3;
+}
+
+#bloc4 {
+  margin-bottom: 50px;
+}
+
+#column {
+  width: 70%;
+  text-align: center;
+  margin-left: 15%;
+  margin-bottom: 50px;
+  font-size: 20px;
+}
+
+#bloc2p {
+  font-weight: 900;
+}
+
+#temoignage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#phototemoignage {
+  width: 300px;
+  margin-left: 10%;
+  margin-right: 100px;
+}
+
+#ptemoignage {
+  width: 40%;
+  font-size: 25px;
 }
