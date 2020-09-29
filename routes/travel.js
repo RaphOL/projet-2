@@ -42,7 +42,6 @@ router.post("/add", async (req, res, next) => {
   }
 });
 
-<<<<<<< HEAD
 router.get("/edit/:id", async(req, res, next)=> { 
   
   const travel = await travelModel.findById(req.params.id);
@@ -50,8 +49,6 @@ router.get("/edit/:id", async(req, res, next)=> {
   res.render("editFlight", {travel});
 });
 
-=======
->>>>>>> 702327ffd64ddb6a2cde51728ebd1e00b8731b07
 
 
 module.exports = router;
