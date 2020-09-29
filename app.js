@@ -97,10 +97,6 @@ app.use("/", require("./routes/authPilote"));
 app.use("/", require("./routes/authUser"));
 app.use("/travel/", require("./routes/travel"));
 // app.use("/", require("./routes/searchFlight"));
-<<<<<<< HEAD
-
-=======
->>>>>>> 702327ffd64ddb6a2cde51728ebd1e00b8731b07
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
