@@ -152,14 +152,9 @@ i {
   margin-bottom: 60px;
 }
 
-#statistic1,
-#statistic1,
-#statistic1 {
-  width: 100%;
+#bloc5flex {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 footer {
