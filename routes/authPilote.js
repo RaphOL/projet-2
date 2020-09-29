@@ -1,6 +1,7 @@
 const express = require("express");
 const router = new express.Router();
 const Pilot = require("../models/Pilote");
+const Travel = require("../models/travelmodel");
 const bcrypt = require("bcrypt");
 
 
@@ -61,12 +62,21 @@ router.get("/signin/pilot", function (req, res, next) {
   });
 
   router.get("/profilpilote/:id", async (req, res, next) => {
-    const pilot = await Pilot.findById(req.params.id);
-    res.render("profilpilot", { pilot});
+   const pilot = await Pilot.findById(req.params.id);
+   let travel;
+   try{
+     travel = await Travel.find({ id_Pilote: { $eq: req.session.currentUser._id } });
+    
+    
+   }
+   catch {
+   }
+   console.log(travel);
+    res.render("profilpilot", { pilot, travel});
   });
 
   router.get("/profilpilotEdit/:id", async (req, res, next) => {   
-     const pilot = await Pilot.findById(req.params.id);
+     const pilot = await Pilot.findById(req.session.currentUser._id);
      res.render("profilpilotEdit", { pilot});
   });
 
