@@ -5,7 +5,8 @@
         <p>{{pilot.name}}</p>
         <p>{{pilot.lastname}}</p>
         <p>{{pilot.email}}</p>
-        <form action="/profilpilotEdit/:id" method="get">
+        
+        <form action="/profilpilotEdit/{{pilot._id}}" method="get">
             <button id="profileIdButton">Edit your profil!</button>
         </form>
     </div>

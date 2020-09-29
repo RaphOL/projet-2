@@ -61,23 +61,24 @@ router.get("/signin/pilot", function (req, res, next) {
   });
 
   router.get("/profilpilote/:id", async (req, res, next) => {
-    const pilot = req.params.id;
-
+    const pilot = await Pilot.findById(req.params.id);
     res.render("profilpilot", { pilot});
   });
 
-  router.get("/profilpilotEdit/:id", async (req, res, next) => {
-    const pilot = req;
-   
-  //  const pilotInfo = await Pilot.findById(pilot);
-    console.log("<<<<<>>>>><<<>>>||||||=====> ",   req.session.currentUser);
-    res.render("profilpilotEdit", { pilot: req.session.currentUser });
+  router.get("/profilpilotEdit/:id", async (req, res, next) => {   
+     const pilot = await Pilot.findById(req.params.id);
+     console.log("<<<>>>>>><<<<>>", pilot);
+
+     res.render("profilpilotEdit", { pilot});
   });
 
   router.post("/profilpilotEdit/:id", async (req, res, next) => {
     try {
+        console.log("req.params.id: ", req.params.id);
+        console.log("req.body: ", req.body);
         const piloteId = req.params.id;
-        const updatePilote = await Games.findByIdAndUpdate(piloteId, req.body);
+        const updatePilote = await Pilot.findByIdAndUpdate(piloteId, req.body, {new: true});
+       
         res.redirect(`/profilpilote/${piloteId}`);
       } catch (error) {
         next(error); // Sends us to the error handler middleware in app.js if an error occurs

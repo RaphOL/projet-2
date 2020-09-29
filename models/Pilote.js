@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+// const Schema = mongoose.Schema;
 
-const piloteSchema = new Schema({
+const piloteSchema = new mongoose.Schema({
   name: String,
   lastname: String,
   email: String,
@@ -14,12 +14,9 @@ const piloteSchema = new Schema({
   deliveryCountry: String,
   issueDate: Date,
   expiryDate: Date,
-
   ratingPilote: [String],
   medicale: String,
   flc055: String,
-
-
   isPilote: Boolean,
 });
 
