@@ -1,4 +1,65 @@
-<section id="section-signup-user">
+<div id="main-div-signin-user">
+    <section id="section-signin-user">
+
+        <h1 class="ui middle aligned center aligned grid">Welcome User!</h1>
+        <p class="ui middle aligned center aligned grid">Enjoy yourself and be comfortable before your next fly!</p>
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui blue image header">
+                    <div class="content">
+                        Register your account
+                    </div>
+                </h2>
+                {{#if msg}}
+                <p class="message {{msg.status}}">{{msg.text}}</p>
+                {{/if}}
+                <form method="post" action="/signup/user" class="ui large form">
+                    <div class="ui stacked segment">
+                        <div class="field">Name
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <label for="name"></label>
+                                <input id="name" type="text" name="name" placeholder="gilbert">
+                            </div>
+                        </div>
+                        <div class="field">LastName
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <label for="lastname"></label>
+                                <input id="lastname" type="text" name="lastname" placeholder="brown">
+                            </div>
+                        </div>
+                        <div class="field">Email
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <label for="email"></label>
+                                <input id="email" type="text" name="email" placeholder="raph.albert@gmail.com">
+                            </div>
+                        </div>
+                        <div class="field">Password
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <label for="password"></label>
+                                <input id="password" type="text" name="password" placeholder="Pass">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="ui fluid large blue submit button">Create Account</button>
+                </form>
+                <div class="ui message">
+                    Already have an account ? <a href="/signin/user">Sign In</a>
+                </div>
+            </div>
+        </div>
+        {{#if error_msg}}
+        <div class="ui middle aligned center aligned grid error-msg">
+            {{error_msg}}
+        </div>
+        {{/if}}
+    </section>
+</div>
+
+{{!-- <section id="section-signup-user">
     <header>
         <h1>Start flying!</h1>
     </header>
@@ -26,4 +87,4 @@
         <button>Create Account</button>
     </form>
     <p class="form-sub-infos">Already have an account ? <a href="/signin/user">Sign In</a></p>
-</section>
+</section> --}}
