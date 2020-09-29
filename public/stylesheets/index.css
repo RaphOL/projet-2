@@ -40,10 +40,6 @@
   }
 }
 
-/* .section {
-  height: 90vh;
-} */
-
 #hpblocs {
   display: flex;
   justify-content: center;
@@ -56,7 +52,8 @@
   text-align: center;
   font-weight: 900;
   font-size: 40px;
-  padding-bottom: 40px;
+  padding-top: 30px;
+  padding-bottom: 60px;
   color: #006bb3;
 }
 
@@ -64,7 +61,7 @@
   width: 70%;
   text-align: center;
   font-size: 30px;
-  padding-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 i {
@@ -72,31 +69,28 @@ i {
   padding-bottom: 30px;
 }
 
-footer {
-  background-color: #eff3f7;
-}
-
 #pbloc2 {
   font-size: 20px;
   text-align: center;
+  width: 50%;
 }
 
 #flexbloc1 {
   display: flex;
+  background-color: #eff3f7;
 }
 
 #flexbloc2 {
   display: flex;
+  background-color: #eff3f7;
 }
 
-.item i {
-  display: block;
-}
 .item {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 60px;
 }
 
 #mainBloc {
@@ -105,7 +99,7 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 8%;
+  /* margin-left: 8%; */
 }
 
 .header {
@@ -116,14 +110,14 @@ footer {
 }
 
 #bloc4 {
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 #column {
   width: 70%;
   text-align: center;
   margin-left: 15%;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   font-size: 20px;
 }
 
@@ -131,10 +125,16 @@ footer {
   font-weight: 900;
 }
 
+#bloc4 {
+  background-color: #eff3f7;
+  padding-bottom: 40px;
+}
+
 #temoignage {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #eff3f7;
 }
 
 #phototemoignage {
@@ -146,4 +146,35 @@ footer {
 #ptemoignage {
   width: 40%;
   font-size: 25px;
+}
+
+#bloc5 {
+  margin-bottom: 60px;
+}
+
+#statistic1,
+#statistic1,
+#statistic1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer {
+  background-color: #eff3f7;
+  height: 10em;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: 600;
+}
+
+#end {
+  font-weight: 500;
+  padding-top: 10px;
+  list-style-type: none;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
 }
