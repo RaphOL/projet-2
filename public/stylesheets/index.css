@@ -1,3 +1,5 @@
+
+
 #bloc1 {
   background-image: url("/images/img-1.jpg");
   background-attachment: local;
@@ -31,12 +33,15 @@
   text-underline-position: under;
 }
 
-@media screen and (max-width: 600px){
-  #title1{
+@media screen and (max-width: 600px) {
+  #title1 {
     font-size: 40px;
   }
-  #title2{
+  #title2 {
     font-size: 25px;
   }
 }
 
+/* .section {
+  height: 90vh;
+} */
