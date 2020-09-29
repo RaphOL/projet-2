@@ -6,7 +6,7 @@ const travelSchema = new Schema({
   id_user: [{ type: Schema.Types.ObjectId, ref: "usermodel" }],
   numberOfSeats: Number,
   availableSeats: Number,
-  Date: Date,
+  immatriculation: String,
   Price: Number,
   Departure: String,
   Destination: String,
