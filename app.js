@@ -96,7 +96,7 @@ app.use("/", require("./routes/users"));
 app.use("/", require("./routes/authPilote"));
 app.use("/", require("./routes/authUser"));
 app.use("/travel/", require("./routes/travel"));
-// app.use("/", require("./routes/searchFlight"));
+app.use("/", require("./routes/searchFlight"));
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

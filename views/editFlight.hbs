@@ -1,5 +1,5 @@
 <section id="travel" class="ui middle aligned center aligned grid fields">
-    <form action="/" method="post">
+    <form action="/travel/edit/{{travel.id}}" method="post">
         <div class="ui form">
             <div class="fields">
                 <div class="six wide field">
@@ -27,21 +27,21 @@
                 </div>
                 <div class="two wide field">
                     <label for="immatriculation">immatriculation</label>
-                    <input name="immatricualtion" type="text" placeholder="F-XXXX" value="{{travel.Aircraft}}">
+                    <input name="immatriculation" type="text" placeholder="F-XXXX" value="{{travel.immatriculation}}">
                 </div>
             </div>
             <div class="fields">
                 <div class="six wide field">
                     <label for="numberOfSeats">number fo seats</label>
-                    <input name="numberOfSeats" type="number" placeholder="" value="{{travel.numbreOfSeats}}">
+                    <input name="numberOfSeats" type="number" placeholder="" value="{{travel.numberOfSeats}}">
                 </div>
                 <div class="six wide field">
                     <label for="availableSeats">available seats</label>
                     <input name="availableSeats" type="number" placeholder="" value="{{travel.availableSeats}}">
                 </div>
                 <div class="two wide field">
-                    <label for="price">price</label>
-                    <input name="price" type="text" placeholder="€" value="{{travel.Price}}">
+                    <label for="Price">Price</label>
+                    <input name="Price" type="number" placeholder="€" value="{{travel.Price}}">
                 </div>
             </div>
         </div>

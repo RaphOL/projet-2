@@ -42,13 +42,21 @@ router.post("/add", async (req, res, next) => {
   }
 });
 
-router.get("/edit/:id", async(req, res, next)=> { 
-  
+router.get("/edit/:id", async(req, res, next)=> {  
   const travel = await travelModel.findById(req.params.id);
+  
   console.log("do you want a piece of me boy: ", travel);
-  res.render("editFlight", {travel});
+  res.render("editFlight", {travel, pilote: req.session.currentUser._id});
 });
 
+router.post("/edit/:id", async(req, res, next)=> {
+  try{
+    const travel = await travelModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  } catch{}
 
+  res.redirect(`/profilpilote/${req.session.currentUser._id}`);
+
+
+});
 
 module.exports = router;
