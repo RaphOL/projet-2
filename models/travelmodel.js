@@ -2,13 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const travelSchema = new Schema({
-  type: String,
-  seats: Number,
+  id_Pilote: { type: Schema.Types.ObjectId, ref: "Pilote" },
+  Seats: Number,
   Date: String,
   Price: Number,
   Destination: String,
   Aircraft: String,
-  Pilot : {type: String}
 });
 
 const Travel = mongoose.model("Travel", travelSchema);
