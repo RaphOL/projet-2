@@ -5,32 +5,32 @@
     </div>
 
     <div id="nav">
-            <ul class="Nav">
-                {{#unless isLoggedIn}}
-                <li>
-                    <p><a href="#">Passenger</a> </p>
-                    <div>
-                        <a href="/signin/user">Sign in</a> <a href="/signup/user">Sign up</a>
-                    </div>
-                </li>
-                {{/unless}}
-                {{#unless isLoggedIn}}
-                  <li>
-                    <p><a href="#">Pilot</a></p>
-                    <div>
-                        <a href="/signin/pilot">Sign in</a> <a href="/signup/pilot">Sign up</a>
-                    </div>
-                </li>
-                {{/unless}}
-            </ul>
-            {{!-- {{#if isLoggedIn}}
+        <ul class="Nav">
+            {{#unless isLoggedIn}}
+            <li>
+                <p><a href="#">Passenger</a> </p>
+                <div>
+                    <a href="/signin/user">Sign in</a> <a href="/signup/user">Sign up</a>
+                </div>
+            </li>
+            {{/unless}}
+            {{#unless isLoggedIn}}
+            <li>
+                <p><a href="#">Pilot</a></p>
+                <div>
+                    <a href="/signin/pilot">Sign in</a> <a href="/signup/pilot">Sign up</a>
+                </div>
+            </li>
+            {{/unless}}
+        </ul>
+        {{#if isLoggedIn}}
         <li class="nav-item">
             <a id="navA" href="/search">Search for a flight</a>
         </li>
         <li class="nav-item">
-            <a id="navA" href="/manage">Manage a flight</a>
+            <a id="navA" href="/add">Add a flight</a>
         </li>
-        {{/if}} --}}
+        {{/if}}
         {{#if isLoggedIn}}
         <a id="navA" href="/logout" class="nav-item">
             <span class="btn-text">Log out</span>
