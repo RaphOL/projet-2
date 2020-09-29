@@ -23,10 +23,12 @@
             </li>
             {{/unless}}
         </ul>
-        {{#if isLoggedIn}}
+       {{#unless isPilotUser}}
         <li class="nav-item">
             <a id="navA" href="/search">Search for a flight</a>
         </li>
+{{/unless}}
+        {{#if isPilotUser}}
         <li class="nav-item">
             <a id="navA" href="/add">Add a flight</a>
         </li>

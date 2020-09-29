@@ -55,26 +55,19 @@ async function checkloginStatus(req, res, next) {
 
   // access this value @ {{user}} or {{user.prop}} in .hbs
   res.locals.isLoggedIn = Boolean(req.session.currentUser);
+
+
   let  isPilotUser;
+
   if(res.locals.user){
     let checkUser = res.locals.user._id;
     try{
-      isPilotUser = await Pilot.findById(checkUser);
+      res.locals.isPilotUser = Boolean(await Pilot.findById(checkUser));
     } catch {
-      isPilotUser = "";
+      res.locals.isPilotUser = false;
     }
   }
-  // const checkUser = res.locals.user._id;
-
-  // const isPilotUser = Pilot.findOne({checkUser});
-
-  if (!isPilotUser){
-    console.log("not a pilot");
-  }else{
-    console.log("is a pilot:");
-  }
-
-
+  
   // access this value @ {{isLoggedIn}} in .hbs
   next(); // continue to the requested route
 }
