@@ -70,15 +70,12 @@
                         {{this.Aircraft}}
                     </td>
                     <td class="selectable">
-                        Edit
+                       <a href="/travel/edit/{{this.id}}">Edit</a> 
                     </td>
                     <td class"selectable">
                         Delete
                     </td>
                 </tr>
-
-
-
                 </tr>
                 {{/each}}
                 {{#unless travel}}
@@ -91,14 +88,14 @@
             <tfoot class="full-width">
                 <tr>
                     <th colspan="8">
-                        <div class="ui right floated small primary labeled icon button">
-                            <i class="plane icon"></i><a href="/add">Add Flight</a>
+                        <div class="ui right floated small primary labeled icon ">
+                            <i class="plane icon"></i> Add flight
                         </div>
-                        {{!-- <div class="ui small button">
-           <form action="/add" method="get">
-            <button class="ui small primary button">Create</button>
-          </form>
-        </div> --}}
+                        <div class="ui small button">
+                            <form action="/travel/add" method="get">
+                                <button class="ui small primary button">Create</button>
+                            </form>
+                        </div>
 
                     </th>
                 </tr>

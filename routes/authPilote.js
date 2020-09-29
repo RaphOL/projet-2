@@ -66,12 +66,9 @@ router.get("/signin/pilot", function (req, res, next) {
    let travel;
    try{
      travel = await Travel.find({ id_Pilote: { $eq: req.session.currentUser._id } });
-    
-    
    }
    catch {
    }
-   console.log(travel);
     res.render("profilpilot", { pilot, travel});
   });
 
