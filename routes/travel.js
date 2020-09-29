@@ -8,16 +8,28 @@ router.get("/add", function (req, res, next) {
 
 router.post("/add", async (req, res, next) => {
   try {
-    
-    const {id_Pilote, id_user, numberOfSeats, availableSeats, immatriculation, Date, Price, Departure, Destination, Aircraft, departureTime, arrvialTime} = req.body;
-    const objTravel =  {
+    const {
+      id_Pilote,
+      id_user,
+      numberOfSeats,
+      availableSeats,
+      immatriculation,
+      Date,
+      Price,
+      Departure,
+      Destination,
+      Aircraft,
+      departureTime,
+      arrvialTime,
+    } = req.body;
+    const objTravel = {
       id_Pilote: req.session.currentUser._id,
       numberOfSeats,
       arrvialTime,
       availableSeats,
       Aircraft,
       Departure,
-      Destination, 
+      Destination,
       immatriculation,
       Price,
       departureTime,
@@ -29,5 +41,7 @@ router.post("/add", async (req, res, next) => {
     next(err);
   }
 });
+
+
 
 module.exports = router;

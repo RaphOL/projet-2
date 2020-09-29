@@ -32,7 +32,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -46,8 +45,6 @@ app.use(
   })
 );
 
-
-
 app.use(flash());
 
 async function checkloginStatus(req, res, next) {
@@ -56,30 +53,26 @@ async function checkloginStatus(req, res, next) {
   // access this value @ {{user}} or {{user.prop}} in .hbs
   res.locals.isLoggedIn = Boolean(req.session.currentUser);
 
+  let isPilotUser;
 
-  let  isPilotUser;
-
-  if(res.locals.user){
+  if (res.locals.user) {
     let checkUser = res.locals.user._id;
-    try{
+    try {
       res.locals.isPilotUser = Boolean(await Pilot.findById(checkUser));
     } catch {
       res.locals.isPilotUser = false;
     }
   }
-  
+
   // access this value @ {{isLoggedIn}} in .hbs
   next(); // continue to the requested route
 }
-
-
 
 // Custom connect-flash (req.flash) middleware.
 function eraseSessionMessage() {
   // Closure time baby.
   var count = 0; // initialize counter in parent scope and use it in inner function
   return function (req, res, next) {
-
     if (req.session.msg) {
       // only increment if session contains msg
       if (count) {
@@ -94,7 +87,6 @@ function eraseSessionMessage() {
   };
 }
 
-
 app.use(require("./middlewares/exposeFlashMessage"));
 app.use(checkloginStatus);
 app.use(eraseSessionMessage());
@@ -103,8 +95,8 @@ app.use("/", require("./routes/index"));
 app.use("/", require("./routes/users"));
 app.use("/", require("./routes/authPilote"));
 app.use("/", require("./routes/authUser"));
-app.use("/", require("./routes/travel"))
-
+app.use("/travel/", require("./routes/travel"));
+app.use("/", require("./routes/searchFlight"));
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -122,6 +114,5 @@ app.use(function (err, req, res, next) {
 });
 
 // routers
-
 
 module.exports = app;
