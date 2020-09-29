@@ -52,11 +52,19 @@ router.get("/edit/:id", async(req, res, next)=> {
 router.post("/edit/:id", async(req, res, next)=> {
   try{
     const travel = await travelModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
-  } catch{}
-
+  } catch(err){
+    next(err);
+  }
   res.redirect(`/profilpilote/${req.session.currentUser._id}`);
+});
 
-
+router.get("/delete/:id", async (req, res, next) => {
+  try {
+    const travel = await travelModel.findByIdAndDelete(req.params.id); 
+  } catch(err) {
+    next(err);
+  }
+  res.redirect(`/profilpilote/${req.session.currentUser._id}`);
 });
 
 module.exports = router;
