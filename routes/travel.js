@@ -8,20 +8,8 @@ router.get("/add", function (req, res, next) {
 
 router.post("/add", async (req, res, next) => {
   try {
-    const {
-      id_Pilote,
-      id_user,
-      numberOfSeats,
-      availableSeats,
-      immatriculation,
-      Date,
-      Price,
-      Departure,
-      Destination,
-      Aircraft,
-      departureTime,
-      arrvialTime,
-    } = req.body;
+    const { id_Pilote, id_user, numberOfSeats, availableSeats, immatriculation, Price,
+      Departure, Destination, Aircraft, departureTime,  arrvialTime, } = req.body;
     const objTravel = {
       id_Pilote: req.session.currentUser._id,
       numberOfSeats,
