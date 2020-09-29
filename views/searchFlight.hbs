@@ -1,5 +1,40 @@
-<section id="search">
- <form action="/search"></form>
-
-
-</section>
+<section id="search" class="section s1">
+        <div class="ui fluid category search">
+            <div class="ui icon input">
+                <input class="prompt" type="text" placeholder="Where from?" name="departure" id="departure"
+                    type="search">
+                <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+        </div>
+        <div class="ui fluid category search">
+            <div class="ui icon input">
+                <input class="prompt" type="text" placeholder="When?" name="when" id="when" type="search">
+                <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+        </div>
+        <select aria-label="Passengers">
+            <option value="" disabled="disabled">
+                Passengers
+            </option>
+            <option value="1">
+                1 Passenger
+            </option>
+            <option value="2">
+                2 Passengers
+            </option>
+            <option value="3">
+                3 Passengers
+            </option>
+            <option value="4">
+                4 Passengers
+            </option>
+            <option value="5">
+                5 Passengers
+            </option>
+        </select>
+        <button class="ui primary button" type="submit" aria-label="Search">
+            Search
+        </button>
+    </section>
