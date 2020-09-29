@@ -1,0 +1,58 @@
+<section id="travel" class="ui middle aligned center aligned grid fields">
+    <form action="/" method="post">
+        <div class="ui form">
+            <div class="fields">
+                <div class="six wide field">
+                    <label for="departure">departure</label>
+                    <input name="Departure" type="text" placeholder="airfield" value="{{travel.Departure}}">
+                </div>
+                <div class="six wide field">
+                    <label>destination</label>
+                    <input name="Destination" type="text" placeholder="airfield" value="{{travel.Destination}}">
+                </div>
+                <div class="four wide field">
+                    <label>time of departure</label>
+                    <input name="departureTime" type="datetime-local" placeholder="" value="{{travel.departureTime}}">
+                </div>
+                <div class="four wide field">
+                    <label>time of arrival</label>
+                    <input name="arrivalTime" type="datetime-local" placeholder="" value="{{travel.arrivalTime}}">
+                </div>
+            </div>
+
+            <div class="fields">
+                <div class="seven wide field">
+                    <label for="aircaft">aircaft</label>
+                    <input name="aircraft" type="text" placeholder="12 Wide" value="{{travel.Aircraft}}">
+                </div>
+                <div class="two wide field">
+                    <label for="immatriculation">immatriculation</label>
+                    <input name="immatricualtion" type="text" placeholder="F-XXXX" value="{{travel.Aircraft}}">
+                </div>
+            </div>
+            <div class="fields">
+                <div class="six wide field">
+                    <label for="numberOfSeats">number fo seats</label>
+                    <input name="numberOfSeats" type="number" placeholder="" value="{{travel.numbreOfSeats}}">
+                </div>
+                <div class="six wide field">
+                    <label for="availableSeats">available seats</label>
+                    <input name="availableSeats" type="number" placeholder="" value="{{travel.availableSeats}}">
+                </div>
+                <div class="two wide field">
+                    <label for="price">price</label>
+                    <input name="price" type="text" placeholder="€" value="{{travel.Price}}">
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="ui icon header">
+                <i class="plane icon"></i>
+            </div>
+            <div>
+                <button class="ui primary button"> Edit</button>
+            </div>
+        </div>
+    </form>
+</section>
