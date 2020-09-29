@@ -3,11 +3,16 @@ const Schema = mongoose.Schema;
 
 const travelSchema = new Schema({
   id_Pilote: { type: Schema.Types.ObjectId, ref: "Pilote" },
-  Seats: Number,
-  Date: String,
+  id_user: [{ type: Schema.Types.ObjectId, ref: "usermodel" }],
+  numberOfSeats: Number,
+  availableSeats: Number,
+  Date: Date,
   Price: Number,
+  Departure: String,
   Destination: String,
-  Aircraft: String,
+  Aircraft: { type: String, enum: ["C172", "C182", "DR400"] },
+  departureTime: Date,
+  arrivalTime: Date,
 });
 
 const Travel = mongoose.model("Travel", travelSchema);
