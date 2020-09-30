@@ -2,18 +2,20 @@
 <div class="card-box">
     {{#each this}}
     <div data-aos="zoom-in" class="property-card">
-        <a href="#">
-            <div class="property-image">
-                <img class="size-image" class="image" src="/images/rusty-watson-Xo7MkRUKNPQ-unsplash.jpg" alt=""
-                    srcset="">
-                <div class="property-image-title">
-                    {{!--  <h5>Card Title</h5> --}}
-                </div>
+        <div class="property-image">
+            <img class="size-image" class="image" src="/images/rusty-watson-Xo7MkRUKNPQ-unsplash.jpg" alt="" srcset="">
+            <div class="property-image-title">
+                <form action="/book/{{this._id}}" method="post">
+                    <button name="book">Book this flight</button>
+                </form>
             </div>
-        </a>
+        </div>
         <div class="property-description">
-            <h5> {{this.Destinaton}} </h5>
-            <p>{{this.description}}</p>
+            <h5>Destination: {{this.Destination}}</h5>
+            <p>Description: {{this.Description}}</p>
+            <p>Departure: {{this.Departure}}</p>
+            <p>Price : {{this.Price}}€</p>
+            <p>Available Seats : {{this.availableSeats}}</p>
         </div>
         <a href="/profileuser">
             <div class="user circle icon profile">
