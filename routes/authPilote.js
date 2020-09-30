@@ -3,7 +3,7 @@ const router = new express.Router();
 const Pilot = require("../models/Pilote");
 const Travel = require("../models/travelmodel");
 const bcrypt = require("bcrypt");
-
+const dayjs = require("dayjs");
 
 router.get("/signin/pilot", function (req, res, next) {
     res.render("signin/signinpilot");
@@ -64,14 +64,23 @@ router.get("/signin/pilot", function (req, res, next) {
   router.get("/profilpilote/:id", async (req, res, next) => {
    const pilot = await Pilot.findById(req.params.id);
    let travel;
+   let today = new Date().now;
+    let today_format = dayjs(today).format("YYYY-MM-DDTHH:mm");
    try{
-     travel = await Travel.find({ id_Pilote: { $eq: req.session.currentUser._id } });
-     console.log("\o/ ==> _o/ ==> _o_ ", travel.departureTime);
+     travel = await Travel.find(  { $and: [{ id_Pilote: { $eq: req.session.currentUser._id }}, {departureTime: {$gte: today_format } }  ]});
+  
    }
    catch(err) {
      next(err);
    }
-    res.render("profilpilot", { pilot, travel});
+   try{
+    travelOld = await Travel.find(  { $and: [{ id_Pilote: { $eq: req.session.currentUser._id }}, {departureTime: {$lt: today_format } }  ]});
+    }
+     catch(err) {
+      next(err);
+    }
+
+    res.render("profilpilot", { pilot, travel, travelOld , scripts: ["/javascripts/filterFlightPilote.js"]});
   });
 
   router.get("/profilpilotEdit/:id", async (req, res, next) => {

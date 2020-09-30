@@ -101,5 +101,53 @@
             </tfoot>
         </table>
     </div>
+<div class="ui divider"></div>
+
+    <div class="">
+        <h3 class="manage-products-title">Your Archieved Filght</h3>
+        <table class="ui celled table">
+            <thead>
+                <tr class="table-row">
+                    <th class="table-head">Departure</th>
+                    <th class="table-head">Destination</th>
+                    <th class="table-head">Departure Time</th>
+                    <th class="table-head">Arrival Time</th>
+                    <th class="table-head">Aircraft</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {{#each travelOld}}
+                <tr>
+                    <td>
+                        {{this.Departure}}
+                    </td>
+                    <td>
+                        {{this.Destination}}
+                    </td>
+                    <td>
+                        {{formatDate this.departureTime}}
+                    </td>
+                    <td>
+                        {{formatDate this.arrivalTime}}
+                    </td>
+                    <td>
+                        {{this.Aircraft}}
+                    </td>
+                </tr>
+                </tr>
+                {{/each}}
+                {{#unless travelOld}}
+                <tr>
+                    {{!-- <td colspan="8" class="selectable">sorry no flight yet</td> --}}
+                    <td colspan="8" class="selectable">Sorry no flight yet</td>
+                </tr>
+                {{/unless}}
+            </tbody>
+        </table>
+    </div>
+
+
 
 </section>

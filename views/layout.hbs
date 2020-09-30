@@ -20,13 +20,16 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="/javascripts/index.js" type="module"></script>
+  
+  {{#each scripts}}
+  <script  src="{{this}}" type="module"></script>
+  {{/each}}
 </head>
 
 <body>
   {{> mainNav}}
   {{{body}}}
-
-
+  
 </body>
 
 </html>

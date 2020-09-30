@@ -32,8 +32,6 @@ router.post("/add", async (req, res, next) => {
 
 router.get("/edit/:id", async(req, res, next)=> {  
   const travel = await travelModel.findById(req.params.id);
-  
-  console.log("do you want a piece of me boy: ", travel);
   res.render("editFlight", {travel, pilote: req.session.currentUser._id});
 });
 
