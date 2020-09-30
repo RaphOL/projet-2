@@ -1,12 +1,22 @@
 <H1>Welcome on board!</H1>
-<div>
-    <h5>Destination: {{user.Destination}}</h5>
-    <p>Description: {{user.Description}}</p>
-    <p>Departure: {{user.Departure}}</p>
-    <p>Price : {{user.Price}}€</p>
-    <p>Available Seats : {{user.availableSeats}}</p>
-</div>
-
+<table class="ui celled table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Job</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td data-label="Destination:">{{user.Destination}}</td>
+            <td data-label="Description:">{{user.Description}}</td>
+            <td data-label="Departure:">{{user.Departure}}</td>
+            <td data-label="Price:">{{user.Price}}</td>
+            <td data-label="Available Seats :">{{user.availableSeats}}</td>
+        </tr>
+    </tbody>
+</table>
 {{#if user.availableSeats}}
 <form action="/book/{{user._id}}/travelEdit" method="POST">
     <button>Book this flight</button>
