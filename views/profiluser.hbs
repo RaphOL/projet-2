@@ -1,12 +1,37 @@
-<div id="mainDiv">
-    <h1>Welcome back {{user.name}}</h1>
-    <img src="{{user.image}}" alt="img-user">
-    <div id="profileId">
-        <p>{{user.name}}</p>
-        <p>{{user.lastname}}</p>
-        <p>{{user.email}}</p>
-        <form action="/profiluserEdit/:id" method="get">
-            <button id="profileIdButton">Edit your profil!</button>
-        </form>
+<img src="{{user.image}}" alt="img-user">
+<section style="margin-top: 8vh;">
+    <div class="ui placeholder segment">
+        <div class="ui two column very relaxed stackable grid">
+            <div class="column">
+                <div class="ui form">
+                    <div class="field">
+                        <label>Username: </label>
+                        <div class="ui left icon input">
+                            {{!-- <i class="user icon"></i> --}}
+                            {{user.name}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Lastname: </label>
+                        <div class="ui left icon input">
+                            {{user.lastname}}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Email: </label>
+                        <div class="ui left icon input">
+                            {{user.email}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle aligned column">
+                <form action="/profiluserEdit/:id" method="get">
+                    <button class="ui primary button">Edit your profil!</button>
+                </form>
+            </div>
+        </div>
+        <div class="ui vertical divider">
+        </div>
     </div>
-</div>
+</section>
