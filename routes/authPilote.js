@@ -66,15 +66,21 @@ router.get("/signin/pilot", function (req, res, next) {
    let travel;
    try{
      travel = await Travel.find({ id_Pilote: { $eq: req.session.currentUser._id } });
+     console.log("\o/ ==> _o/ ==> _o_ ", travel.departureTime);
    }
-   catch {
+   catch(err) {
+     next(err);
    }
     res.render("profilpilot", { pilot, travel});
   });
 
-  router.get("/profilpilotEdit/:id", async (req, res, next) => {   
-     const pilot = await Pilot.findById(req.session.currentUser._id);
+  router.get("/profilpilotEdit/:id", async (req, res, next) => {
+    try {
+      const pilot = await Pilot.findById(req.session.currentUser._id);
      res.render("profilpilotEdit", { pilot});
+    } catch(err) {
+      next(err);
+    }
   });
 
   router.post("/profilpilotEdit/:id", async (req, res, next) => {

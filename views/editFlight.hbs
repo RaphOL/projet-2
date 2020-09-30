@@ -24,7 +24,7 @@
                 <div class="seven wide field">
                     <label for="aircaft">aircaft</label>
                     <select class="ui dropdown" name="Aircraft">
-                        <option value="{{travel.Aircraft}}" >{{travel.Aircraft}}</option>
+                        <option value="{{travel.Aircraft}}">{{travel.Aircraft}}</option>
                         <option value="C172">C172</option>
                         <option value="C182">C182</option>
                         <option value="DR400">DR400</option>
@@ -35,6 +35,11 @@
                     <label for="immatriculation">immatriculation</label>
                     <input name="immatriculation" type="text" placeholder="F-XXXX" value="{{travel.immatriculation}}">
                 </div>
+                <div class="seven wide field">
+                    <label for="image">Image</label>
+                    <input id="image" name="image" type="file" value="{{travel.image}}">
+                </div>
+
             </div>
             <div class="fields">
                 <div class="six wide field">
@@ -45,10 +50,15 @@
                     <label for="availableSeats">available seats</label>
                     <input name="availableSeats" type="number" placeholder="" value="{{travel.availableSeats}}">
                 </div>
-                <div class="two wide field">
+                <div class="four wide field">
                     <label for="Price">Price</label>
                     <input name="Price" type="number" placeholder="€" value="{{travel.Price}}">
                 </div>
+            </div>
+            <div class="field">
+                <div class="sixteen wide field"></div>
+                <label>Description</label>
+                <textarea name="Description" >{{travel.Description}}</textarea>
             </div>
         </div>
 
