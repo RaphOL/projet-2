@@ -1,26 +1,39 @@
-<H1>Welcome on board!</H1>
-<table class="ui celled table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Job</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td data-label="Destination:">{{user.Destination}}</td>
-            <td data-label="Description:">{{user.Description}}</td>
-            <td data-label="Departure:">{{user.Departure}}</td>
-            <td data-label="Price:">{{user.Price}}</td>
-            <td data-label="Available Seats :">{{user.availableSeats}}</td>
-        </tr>
-    </tbody>
-</table>
-{{#if user.availableSeats}}
-<form action="/book/{{user._id}}/travelEdit" method="POST">
-    <button>Book this flight</button>
-</form>
-{{else}} <p>No more seat available!</p>
+<div>ddd</div>
+<div>ddd</div>
+<div>ddd</div>
 
-{{/if}}
+<h1 id="titreWelcome">Welcome on board!</h1>
+
+<div class="ui segment">
+    <img class="ui centered medium image" src="/images/rusty-watson-Xo7MkRUKNPQ-unsplash.jpg">
+</div>
+
+<div id="bookTable">
+    <table class="ui celled table">
+        <thead>
+            <tr>
+                <th>Destination:</th>
+                <th>Description:</th>
+                <th>Departure:</th>
+                <th>Price:</th>
+                <th>Available Seats :</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="Destination:">{{user.Destination}}</td>
+                <td data-label="Description:">{{user.Description}}</td>
+                <td data-label="Departure:">{{user.Departure}}</td>
+                <td data-label="Price:">{{user.Price}}</td>
+                <td data-label="Available Seats :">{{user.availableSeats}}</td>
+            </tr>
+        </tbody>
+    </table>
+    {{#if user.availableSeats}}
+    <form action="/book/{{user._id}}/travelEdit" method="POST">
+        <button class="ui primary button">Book this flight</button>
+    </form>
+    {{else}} <button class="ui primary button" class="ui bottom attached button">No more seat
+        available!</button>
+    {{/if}}
+</div>

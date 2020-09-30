@@ -12,6 +12,7 @@
   <link rel='stylesheet' href='/stylesheets/index.css' />
   <link rel='stylesheet' href='/stylesheets/mainNav.css' />
   <link rel='stylesheet' href='/stylesheets/profiluser.css' />
+  <link rel='stylesheet' href='/stylesheets/book.css' />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
     integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
@@ -20,16 +21,16 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="/javascripts/index.js" type="module"></script>
-  
+
   {{#each scripts}}
-  <script  src="{{this}}" type="module"></script>
+  <script src="{{this}}" type="module"></script>
   {{/each}}
 </head>
 
 <body>
   {{> mainNav}}
   {{{body}}}
-  
+
 </body>
 
 </html>
