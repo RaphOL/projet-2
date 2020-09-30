@@ -2,11 +2,11 @@
     <form action="/travel/add" method="post">
         <div class="ui form">
             <div class="fields">
-                <div class="six wide field">
+                <div class="six wide field" id="departure">
                     <label for="departure">departure</label>
                     <input id="Departure" name="Departure" type="text" placeholder="airfield">
                 </div>
-                <div class="six wide field">
+                <div class="six wide field" id="destination">
                     <label>destination</label>
                     <input name="Destination" type="text" placeholder="airfield">
                 </div>
@@ -21,10 +21,10 @@
             </div>
 
             <div class="fields">
-                <div class="seven wide field" id="test">
+                <div class="seven wide field" id="aircraft">
                     <label for="aircaft">aircaft</label>
                     {{!-- <input name="aircraft" type="text" placeholder="12 Wide"> --}}
-                    <select id="air-craft" class="ui dropdown" name="Aircraft">
+                    <select  class="ui dropdown" name="Aircraft">
                         <option value="-1"  selected disabled> Aircraft</option>
                         <option value="C172">C172</option>
                         <option value="C182">C182</option>
@@ -32,7 +32,7 @@
                     </select>
                 </div>
 
-                <div class="two wide field">
+                <div class="two wide field" id="immatriculation">
                     <label for="immatriculation">Immatriculation</label>
                     <input name="immatriculation" type="text" placeholder="F-XXXX">
                 </div>
@@ -43,21 +43,19 @@
                 </div>
             </div>
             <div class="fields">
-                <div class="six wide field">
+                <div class="six wide field" id="nbSeat">
                     <label for="numberOfSeats">Number fo seats</label>
                     <input name="numberOfSeats" type="number" placeholder="">
                 </div>
-                <div class="six wide field">
+                <div class="six wide field" id="availSeat">
                     <label for="availableSeats">available seats</label>
                     <input name="availableSeats" type="number" placeholder="">
                 </div>
-                <div class="four wide field">
+                <div class="four wide field" id="Price">
                     <label for="Price">Price</label>
                     <input name="Price" type="text" placeholder="€">
                 </div>
             </div>
-
-                
 
             <div class="field">
                 <div class="sixteen wide field"></div>
