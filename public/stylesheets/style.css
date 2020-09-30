@@ -6,7 +6,7 @@
 @import url("travel.css");
 @import url("searchFlight.css");
 @import url("partial-allFlights.css");
-
+@import url("searchBar.css");
 * {
   box-sizing: border-box;
   padding: O;

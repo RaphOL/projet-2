@@ -3,7 +3,8 @@
 <section data-aos="fade-up" id="bloc1" class="section s1">
     <h1 data-aos="fade-up" id="title1">Experience private flights with local pilots</h1>
     <h2 data-aos="fade-up" id="title2">Find a Flight near you !</h2>
-    <div class="ui fluid category search">
+
+    {{!-- <div class="ui fluid category search">
         <div class="ui icon input">
             <input class="prompt" type="text" placeholder="Where from?" name="departure" id="departure" type="search">
             <i class="search icon"></i>
@@ -39,7 +40,38 @@
     </select>
     <button class="ui primary button" type="submit" aria-label="Search">
         Search
-    </button>
+    </button> --}}
+
+    <div class="app">
+        {{!-- <div class="wrapper"> --}}
+            {{!-- <div class="card">
+                <header class="card__header"> --}}
+                    <div class="card__form">
+                        <select class="card__select" name="region" id="reg">
+                            <option value="region">Region</option>
+                            <option value="Northeast">Northeast</option>
+                            <option value="Southwest">Southwest</option>
+                            <option value="West">West</option>
+                            <option value="Southeast">Southeast</option>
+                            <option value="Midwest">Midwest</option>
+                        </select>
+                        <select class="card__select" name="city" id="ct">
+                            <option value="city">City</option>
+                            <option value="newyork">NewYork</option>
+                            <option value="sanfrancisco">San Francisco</option>
+                            <option value="washington">Washington</option>
+                            <option value="miami">Miami</option>
+                            <option value="minneapolis">Minneapolis</option>
+                        </select>
+                        <div>
+                            <a href="#" class="card__btn">Find</a>
+                        </div>
+                    </div>
+                {{!-- </header>
+            </div> --}}
+        {{!-- </div> --}}
+    </div>
+
 </section>
 
 <div data-aos="fade-up" id="hpblocs" class="b1">
