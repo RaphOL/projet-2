@@ -2,15 +2,15 @@
 <div class="card-box">
     {{#each this}}
     <div data-aos="zoom-in" class="property-card">
-        <div class="property-image">
-            <img class="size-image" class="image" src="/images/rusty-watson-Xo7MkRUKNPQ-unsplash.jpg" alt="" srcset="">
+        <div id="bouttonSee" class="property-image">
+            <img id="imageSee" class="size-image" class="image" src="/images/rusty-watson-Xo7MkRUKNPQ-unsplash.jpg" alt="" srcset="">
             <div class="property-image-title">
                 <form action="/book/{{this._id}}" method="post">
-                    <button name="book">See this flight</button>
+                    <button class="ui primary button" name="book">See this flight</button>
                 </form>
             </div>
         </div>
-        <div class="property-description">
+        <div id="textSee" class="property-description">
             <h5>Destination: {{this.Destination}}</h5>
             <p>Departure: {{this.Departure}}</p>
             <p>Price : {{this.Price}}€</p>
