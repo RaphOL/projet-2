@@ -24,15 +24,11 @@ hbs.registerHelper("setDate", function(){
 });
 
 hbs.registerHelper("CalcDuration", function(date1, date2){
-  
-  var fromtime = dayjs(date1);
-  var totime = dayjs(date2);
-  
-  console.log(fromtime);
-  console.log(totime );
-
-  console.log(totime.diff(fromtime));  
- // return dayjs(today).format("YYYY-MM-DDTHH:mm");
+  if(date2){
+    var fromtime = dayjs(date1);
+    var totime = dayjs(date2);
+    return (totime.diff(fromtime, 'minute'));
+  }
 });
 
 
