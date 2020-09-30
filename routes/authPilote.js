@@ -61,6 +61,12 @@ router.get("/signin/pilot", function (req, res, next) {
      }
   });
 
+
+  router.get("/profilPilot/profil", (req,res)=> {
+    let pilotCurrent = req.session.currentUser._id;
+    res.redirect(`/profilpilote/${pilotCurrent}`);
+  });
+
   router.get("/profilpilote/:id", async (req, res, next) => {
    const pilot = await Pilot.findById(req.params.id);
    let travel;
