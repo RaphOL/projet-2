@@ -6,6 +6,7 @@ const userSchema = new Schema({
   lastname: String,
   email: String,
   password: String,
+  flights: [{ type: Schema.Types.ObjectId, ref: "Travel" }],
   image: {
     type: String,
     default:

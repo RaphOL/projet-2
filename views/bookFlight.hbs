@@ -8,9 +8,9 @@
 </div>
 
 {{#if user.availableSeats}}
-<form action="" method="post"></form>
-<button name="book">Book this flight</button>
+<form action="/book/{{user._id}}/travelEdit" method="POST">
+    <button>Book this flight</button>
 </form>
-{{else}} <p>No more seat abailable!</p>
+{{else}} <p>No more seat available!</p>
 
 {{/if}}
