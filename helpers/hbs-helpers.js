@@ -10,7 +10,12 @@ hbs.registerHelper("formatDate", function (date) {
   if (date){
     return dayjs(date).format("YYYY-MM-DD HH:mm");
   }
-  
+});
+
+hbs.registerHelper("formatsimpleDate", function (date) {
+  if (date){
+    return dayjs(date).format("YYYY-MM-DD");
+  }
 });
 
 hbs.registerHelper("minDate", function(){

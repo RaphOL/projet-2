@@ -102,6 +102,7 @@ router.get("/signin/pilot", function (req, res, next) {
   router.post("/profilpilotEdit/:id", async (req, res, next) => {
     try {
         const piloteId = req.params.id;
+        console.log("::::////\÷÷÷/", req.body);
         const updatePilote = await Pilot.findByIdAndUpdate(piloteId, req.body, {new: true});
         res.redirect(`/profilpilote/${piloteId}`);
       } catch (error) {

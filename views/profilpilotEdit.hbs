@@ -16,14 +16,14 @@
         <label>Address</label>
         <div class="fields">
             <div class="eight wide field">
-                <input type="text" name="adress" placeholder="42 rue de la poupée qui tousse"
+                <input type="text" name="address" placeholder="Adress"
                     value="{{pilot.address}}">
             </div>
             <div class="four wide field">
-                <input type="text" name="city" placeholder="Paris" value="{{pilot.city}}">
+                <input type="text" name="city" placeholder="City" value="{{pilot.city}}">
             </div>
             <div class="four wide field">
-                <input type="text" name="zipCode" placeholder="75116" value="{{pilot.zipCode}}">
+                <input type="text" name="zipCode" placeholder="ZipCode" value="{{pilot.zipCode}}">
             </div>
         </div>
     </div>
@@ -46,10 +46,12 @@
         </div>
         <div class="two fields">
             <div class="field">
-                <input type="date" name="issueDate" placeholder="" value="{{pilot.issueDate}}">
+                <label for="">Issue Date</label>
+                <input type="date" name="issueDate" placeholder="" value="{{formatsimpleDate pilot.issueDate}}">
             </div>
             <div class="field">
-                <input type="date" name="expiryDate" placeholder="" value="{{pilot.expiryDate}}">
+                <label for="">Expiry Date</label>
+                <input type="date" name="expiryDate" placeholder="" value="{{formatsimpleDate pilot.expiryDate}}">
             </div>
         </div>
 
