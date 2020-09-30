@@ -2,7 +2,6 @@ require("dotenv").config();
 require("./config/mongodb"); // database initial setup
 require("./helpers/hbs-helpers"); // utils for hbs templates
 
-
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
@@ -99,6 +98,7 @@ app.use("/", require("./routes/authPilote"));
 app.use("/", require("./routes/authUser"));
 app.use("/travel/", require("./routes/travel"));
 app.use("/", require("./routes/searchFlight"));
+app.use("/", require("./routes/home-searbar"));
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
