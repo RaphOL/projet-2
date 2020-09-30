@@ -12,11 +12,11 @@
                 </div>
                 <div class="four wide field">
                     <label>time of departure</label>
-                    <input name="departureTime" type="datetime-local" placeholder="">
+                    <input name="departureTime" min={{minDate}} type="datetime-local" placeholder="" value={{setDate}}>
                 </div>
                 <div class="four wide field">
                     <label>time of arrival</label>
-                    <input name="arrivalTime" type="datetime-local" placeholder="">
+                     <input name="arrivalTime" min={{minDate}} type="datetime-local" placeholder="" value={{setDate}}>
                 </div>
             </div>
 
