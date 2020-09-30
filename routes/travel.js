@@ -10,7 +10,7 @@ router.post("/add", async (req, res, next) => {
   try {
     const { id_Pilote, id_user, numberOfSeats, availableSeats, immatriculation, Price,
       Departure, Destination, Aircraft, departureTime,  arrvialTime, } = req.body;
-    const objTravel = {
+     const objTravel = {
       id_Pilote: req.session.currentUser._id,
       numberOfSeats,
       arrvialTime,
@@ -22,7 +22,7 @@ router.post("/add", async (req, res, next) => {
       Price,
       departureTime,
     };
-
+    console.log(">>>>>><<<<<<<:", req.body);
     const travel = travelModel.create(objTravel);
     res.redirect(`/profilpilote/${req.session.currentUser._id}`);
   } catch (err) {

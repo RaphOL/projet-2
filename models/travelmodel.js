@@ -18,12 +18,13 @@ const travelSchema = new Schema({
   Departure: String,
   Destination: String,
   Aircraft: { type: String, enum: ["C172", "C182", "DR400"] },
-  departureTime: {type: Date,
-    required: function() {
-      let today = new Date().now;
-      return dayjs(this.bacon).format("YYYY-MM-DDTHH:mm") >=  today.format("YYYY-MM-DDTHH:mm");
-    }
-  },
+  // departureTime: {type: Date,
+  //   required: function() {
+  //     let today = new Date().now;
+  //     return dayjs(this.bacon).format("YYYY-MM-DDTHH:mm") >=  today.format("YYYY-MM-DDTHH:mm");
+  //   }
+  // },
+  departureTime: Date,
   arrivalTime: Date,
 });
 
