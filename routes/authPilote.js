@@ -64,6 +64,7 @@ router.get("/signin/pilot", function (req, res, next) {
   router.get("/profilpilote/:id", async (req, res, next) => {
    const pilot = await Pilot.findById(req.params.id);
    let travel;
+   let travelOld;
    let today = new Date().now;
     let today_format = dayjs(today).format("YYYY-MM-DDTHH:mm");
    try{
