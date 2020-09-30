@@ -1,16 +1,22 @@
-<form method="POST" action="/profiluserEdit/{{user._id}}">
-    <h3 class="form-title"> Edit your profile</h3>
-    <div>
-        <label for="user-name">Name</label>
-        <input id="user-name" name="name" type="text" placeholder="Raph" value="{{user.name}}">
-    </div>
-    <div>
-        <label for="user-lastname">Lastname</label>
-        <input id="user-lastname" name="lastname" type="text" placeholder="Albert" value="{{user.lastname}}">
-    </div>
-    <div>
-        <label for="user-email">Email</label>
-        <input id="user-email" name="email" type="text" placeholder="raph.albert@gmail.com" value="{{user.email}}">
-    </div>
-    <button>Edit your profile</button>
-</form>
+<section style="margin-top: 8vh;">
+    <form class="ui form" method="POST" action="/profiluserEdit/{{user._id}}">
+        <h4 class="ui dividing header">User Information</h4>
+        <div class="field">
+            <label>Name</label>
+            <div class="two fields">
+                <div class="field">
+                    <input type="text" name="name" placeholder="First Name" value="{{user.name}}">
+                </div>
+                <div class="field">
+                    <input type="text" name="lastname" placeholder="Last Name" value="{{user.lastname}}">
+                </div>
+            </div>
+            <label>Email</label>
+            <div class="field">
+                <input type="text" name="email" type="text" placeholder="raph.albert@gmail.com" value="
+                    {{user.email}}">
+            </div>
+        </div>
+        <button class="ui button active">Edit info</button>
+    </form>
+</section>
