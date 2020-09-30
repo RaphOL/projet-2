@@ -1,6 +1,7 @@
 const express = require("express");
 const router = new express.Router();
 const User = require("../models/usermodel");
+const travel = require("../models/travelmodel");
 const bcrypt = require("bcrypt");
 
 const salt = 10;
@@ -39,9 +40,11 @@ router.get("/signup/user", function (req, res, next) {
 
 router.get("/profiluser/:id", async (req, res, next) => {
   const myUser = req.params.id;
-
+  const travelInfo = await travel.find({
+    id_user: { $eq: req.session.currentUser._id },
+  });
   const userInfo = await User.findById(myUser);
-  res.render("profiluser", { user: userInfo });
+  res.render("profiluser", { user: userInfo, travelOld: travelInfo });
 });
 
 router.post("/signup/user", async (req, res, next) => {
