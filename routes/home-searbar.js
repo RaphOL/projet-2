@@ -4,9 +4,9 @@ const travelModel = require("../models/travelmodel");
 
 router.get("/", async (req, res, next) => {
   try {
-    const dbRes = await travelModel.find(req.body);
-    console.log(dbRes);
-    res.render("/", { flights: dbRes });
+    const flights = await travelModel.find(req.body);
+    console.log(flights);
+    res.render("/", { flights: flights });
   } catch (err) {
     next(err);
   }
