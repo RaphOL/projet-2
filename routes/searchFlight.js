@@ -25,7 +25,7 @@ router.post("/search", async (req, res, next) => {
 router.get("/book/:id", async (req, res, next) => {
   const myUserBook = req.params.id;
 
-  const userBook = await userModel.findById(myUserBook);
+  const userBook = await travelModel.findById(myUserBook);
   res.render("bookFlight", { user: userBook });
 });
 

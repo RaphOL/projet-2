@@ -83,6 +83,7 @@ p {
 .profile {
   width: 2em;
   height: 2em;
+  background-color: aqua;
   position: absolute;
   bottom: 1em;
   left: 1em;

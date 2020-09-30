@@ -8,6 +8,7 @@
   font-weight: bold;
   position: fixed;
   margin-bottom: 2vh;
+  z-index: 1;
 }
 
 .small-container {
