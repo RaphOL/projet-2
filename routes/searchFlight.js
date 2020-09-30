@@ -34,4 +34,11 @@ router.post("/book/:id", async (req, res, next) => {
   res.redirect(`/book/${myUserBook}`);
 });
 
+router.post("/book/:id/travelEdit", async (req, res, next) => {
+  const myUserBook = req.params.id;
+  res.redirect(`/book/${myUserBook}`);
+});
+
 module.exports = router;
+
+//il faut vérifier si jamais nombre de seat ok 

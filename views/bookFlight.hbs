@@ -6,6 +6,11 @@
     <p>Price : {{user.Price}}€</p>
     <p>Available Seats : {{user.availableSeats}}</p>
 </div>
-<form action="" method="post">
-    <button name="book">Book this flight</button>
+
+{{#if user.availableSeats}}
+<form action="" method="post"></form>
+<button name="book">Book this flight</button>
 </form>
+{{else}} <p>No more seat abailable!</p>
+
+{{/if}}
