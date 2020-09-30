@@ -18,6 +18,7 @@ router.get("/search/flights", async (req, res, next) => {
 
 router.post("/search", async (req, res, next) => {
   try {
+    res.redirect("/search/flights");
   } catch (err) {
     next(err);
   }
