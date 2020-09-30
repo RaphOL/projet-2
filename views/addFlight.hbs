@@ -4,7 +4,7 @@
             <div class="fields">
                 <div class="six wide field">
                     <label for="departure">departure</label>
-                    <input name="Departure" type="text" placeholder="airfield">
+                    <input id="Departure" name="Departure" type="text" placeholder="airfield">
                 </div>
                 <div class="six wide field">
                     <label>destination</label>
@@ -21,7 +21,7 @@
             </div>
 
             <div class="fields">
-                <div class="seven wide field">
+                <div class="seven wide field" id="test">
                     <label for="aircaft">aircaft</label>
                     {{!-- <input name="aircraft" type="text" placeholder="12 Wide"> --}}
                     <select id="air-craft" class="ui dropdown" name="Aircraft">
@@ -31,6 +31,7 @@
                         <option value="DR400">DR400</option>
                     </select>
                 </div>
+
                 <div class="two wide field">
                     <label for="immatriculation">Immatriculation</label>
                     <input name="immatriculation" type="text" placeholder="F-XXXX">
@@ -72,7 +73,7 @@
                 <i class="plane icon"></i>
             </div>
             <div>
-                <button class="ui primary button"> Create</button>
+                <button id="createBtn" class="ui primary button" > Create</button>
             </div>
         </div>
 
