@@ -12,11 +12,12 @@
                 </div>
                 <div class="four wide field">
                     <label>time of departure</label>
-                    <input name="departureTime" type="datetime-local" placeholder="" value="{{travel.departureTime}}">
+                    <input name="departureTime" type="datetime-local" placeholder="" value={{#formatDateInput travel.departureTime}}{{/formatDateInput}}>
+
                 </div>
                 <div class="four wide field">
                     <label>time of arrival</label>
-                    <input name="arrivalTime" type="datetime-local" placeholder="" value="{{travel.arrivalTime}}">
+                    <input name="arrivalTime" type="datetime-local" placeholder="" value={{#formatDateInput travel.arrivalTime}}{{/formatDateInput}}>
                 </div>
             </div>
 
