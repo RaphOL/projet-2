@@ -1,43 +1,13 @@
-<section id="search" class="section s1">
-    <form id="search-flight-form" action="/search" method="post">
-        <div class="ui fluid category search">
-            <div class="ui icon input">
-                <label for="departure"></label>
-                <input class="prompt" type="text" placeholder="Where from?" name="departure" id="departure"
-                    type="search">
-                <i class="search icon"></i>
+<section id="search">
+    <div class="ui middle search-input">
+        <form action="/search/flights" method="get">
+            <div class="ui action input">
+                {{!-- <input type="text" placeholder="Search..."> --}}
+                <button class="ui button">Show all flights</button>
             </div>
-            <div class="results"></div>
-        </div>
-        <div class="ui fluid category search">
-            <div class="ui icon input">
-                <input class="prompt" type="date-time" placeholder="When?" name="departureTime" id="when" type="search">
-                <i class="search icon"></i>
-            </div>
-            <div class="results"></div>
-        </div>
-        <select aria-label="Passengers">
-            <option value="" disabled="disabled">
-                Passengers
-            </option>
-            <option value="1">
-                1 Passenger
-            </option>
-            <option value="2">
-                2 Passengers
-            </option>
-            <option value="3">
-                3 Passengers
-            </option>
-            <option value="4">
-                4 Passengers
-            </option>
-            <option value="5">
-                5 Passengers
-            </option>
-        </select>
-        <button class="ui primary button" type="submit" aria-label="Search">
-            Search
-        </button>
-    </form>
+        </form>
+    </div>
+    <div id="all-flights">
+        {{> allFlights flights}}
+    </div>
 </section>

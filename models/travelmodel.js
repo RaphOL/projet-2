@@ -7,6 +7,8 @@ const travelSchema = new Schema({
   numberOfSeats: Number,
   availableSeats: Number,
   immatriculation: String,
+  Description: String,
+  image: String,
   Price: Number,
   Departure: String,
   Destination: String,

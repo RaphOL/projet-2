@@ -5,6 +5,8 @@
 @import url("fullpage.min.css");
 @import url("travel.css");
 @import url("searchFlight.css");
+@import url("partial-allFlights.css");
+
 * {
   box-sizing: border-box;
   padding: O;

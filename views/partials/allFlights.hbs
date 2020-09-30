@@ -1,0 +1,25 @@
+<br>
+<div class="card-box">
+    {{#each this}}
+    <div data-aos="zoom-in" class="property-card">
+        <a href="#">
+            <div class="property-image">
+                <img class="size-image" class="image" src="/images/rusty-watson-Xo7MkRUKNPQ-unsplash.jpg" alt=""
+                    srcset="">
+                <div class="property-image-title">
+                    {{!--  <h5>Card Title</h5> --}}
+                </div>
+            </div>
+        </a>
+        <div class="property-description">
+            <h5> {{this.Destinaton}} </h5>
+            <p>{{this.description}}</p>
+        </div>
+        <a href="/profileuser">
+            <div class="user circle icon profile">
+
+            </div>
+        </a>
+    </div>
+    {{/each}}
+</div>
