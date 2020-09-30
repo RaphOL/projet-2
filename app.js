@@ -1,5 +1,7 @@
 require("dotenv").config();
 require("./config/mongodb"); // database initial setup
+require("./helpers/hbs-helpers"); // utils for hbs templates
+
 
 var createError = require("http-errors");
 var express = require("express");
