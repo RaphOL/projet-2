@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const dayjs = require("dayjs");
 
 const travelSchema = new Schema({
   id_Pilote: { type: Schema.Types.ObjectId, ref: "Pilote" },
@@ -17,7 +18,12 @@ const travelSchema = new Schema({
   Departure: String,
   Destination: String,
   Aircraft: { type: String, enum: ["C172", "C182", "DR400"] },
-  departureTime: Date,
+  departureTime: {type: Date,
+    required: function() {
+      let today = new Date().now;
+      return dayjs(this.bacon).format("YYYY-MM-DDTHH:mm") >=  today.format("YYYY-MM-DDTHH:mm");
+    }
+  },
   arrivalTime: Date,
 });
 
