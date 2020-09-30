@@ -10,8 +10,6 @@ router.get("/about", function (req, res, next) {
   res.render("about");
 });
 
-
-
 router.get("/search", function (req, res, next) {
   res.render("searchFlight");
 });

@@ -8,7 +8,11 @@ const travelSchema = new Schema({
   availableSeats: Number,
   immatriculation: String,
   Description: String,
-  image: String,
+  image: {
+    type: String,
+    default:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQftYtvpnjxbtwsPGJCX03__LbM9J5020PHBw&usqp=CAU",
+  },
   Price: Number,
   Departure: String,
   Destination: String,
