@@ -25,10 +25,15 @@ router.post("/search", async (req, res, next) => {
 });
 
 router.get("/book/:id", async (req, res, next) => {
-  const myUserBook = req.params.id;
+  try {
+    const myUserBook = req.params.id;
 
-  const userBook = await travelModel.findById(myUserBook);
-  res.render("bookFlight", { user: userBook });
+    const userBook = await travelModel.findById(myUserBook);
+
+    res.render("bookFlight", { user: userBook });
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.post("/book/:id", async (req, res, next) => {
@@ -37,9 +42,13 @@ router.post("/book/:id", async (req, res, next) => {
 });
 
 router.post("/book/:id/travelEdit", async (req, res, next) => {
-  const myUserBook = req.params.id;
-  const userId = req.session.currentUser._id;
+  if (!req.session.currentUser) {
+    res.redirect("/signin/user");
+  }
+
   try {
+    const myUserBook = req.params.id;
+    const userId = req.session.currentUser._id;
     const userDb = await userModel.findByIdAndUpdate(
       { _id: userId },
       { $push: { flights: myUserBook } }

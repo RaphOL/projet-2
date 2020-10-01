@@ -7,6 +7,7 @@
 @import url("searchFlight.css");
 @import url("partial-allFlights.css");
 @import url("searchBar.css");
+@import url("searchBar-flights.css");
 * {
   box-sizing: border-box;
   padding: O;

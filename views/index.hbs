@@ -5,18 +5,12 @@
     <h2 data-aos="fade-up" id="title2">Find a Flight near you !</h2>
 
 
-    <form data-aos="fade-up" action="/" method="get" class="card__form">
+    <form data-aos="fade-up" action="/find/flights" method="get" class="card__form">
         <label for="card_input"></label>
         <input class="card__select" placeholder="where from" name="Departure">
-        {{#each flights}}
-        <option value="{{this.Departure}}"></option>
-        {{/each}}
-        </select>
-        <input placeholder="to" class="card__select" name="Destination">
-        {{#each flights}}
-        <option value="{{this.Destination}}"></option>
-        {{/each}}
-        </select>
+
+        <input type="date" class="card__select" name="departureTime">
+
         <button class="ui blue button card__btn">Find Flight</button>
     </form>
 
@@ -24,7 +18,7 @@
 </section>
 
 <div class="show-requested-fligths">
-    
+
 </div>
 
 <div data-aos="fade-up" id="hpblocs" class="b1">
