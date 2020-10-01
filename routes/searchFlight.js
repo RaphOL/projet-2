@@ -54,6 +54,36 @@ router.post("/book/:id/travelEdit", async (req, res, next) => {
   }
 });
 
+router.get("/delete/:id", async (req, res, next) => {
+  const myUserBook = req.params.id;
+
+  const userBook = await travelModel.findById(myUserBook);
+  res.render("profiluser", { user: userBook });
+});
+
+router.post("/delete/:id", async (req, res, next) => {
+  const myUserBook = req.params.id;
+  res.redirect(`/profiluser/${myUserBook}`);
+});
+
+router.post("/delete/:id/travelDelit", async (req, res, next) => {
+  const myUserBook = req.params.id;
+  const userId = req.session.currentUser._id;
+  try {
+    const userDb = await userModel.findByIdAndUpdate(
+      { _id: userId },
+      { $push: { flights: myUserBook } }
+    );
+    const travelDb = await travelModel.findByIdAndUpdate(
+      { _id: myUserBook },
+      { $inc: { availableSeats: +1 }, $push: { id_user: userId } }
+    );
+    res.redirect(`/profiluser/${req.session.currentUser._id}`);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
 
 //il faut vérifier si jamais nombre de seat ok
