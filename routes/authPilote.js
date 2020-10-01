@@ -55,6 +55,8 @@ router.post("/signup/pilot", async (req, res, next) => {
       lastname,
       password: hashedPassword,
     });
+    
+
     res.redirect(`/profilpilote/${pilotCreate._id}`);
   } catch (err) {
     next(err);
@@ -76,33 +78,41 @@ router.get("/profilpilote/:id", async (req, res, next) => {
   let travelOld;
   let today = new Date().now;
   let today_format = dayjs(today).format("YYYY-MM-DDTHH:mm");
-  try {
-    travel = await Travel.find({
-      $and: [
-        { id_Pilote: { $eq: req.session.currentUser._id } },
-        { departureTime: { $gte: today_format } },
-      ],
+  
+  if (!req.session.currentUser){
+    res.redirect("/");
+  }else{
+    try {
+      travel = await Travel.find({
+        $and: [
+          { id_Pilote: { $eq: req.session.currentUser._id } },
+          { departureTime: { $gte: today_format } },
+        ],
+      });
+    } catch (err) {
+      next(err);
+    }
+    try {
+      travelOld = await Travel.find({
+        $and: [
+          { id_Pilote: { $eq: req.session.currentUser._id } },
+          { departureTime: { $lt: today_format } },
+        ],
+      });
+    } catch (err) {
+      next(err);
+    }
+  
+    res.render("profilpilot", {
+      pilot,
+      travel,
+      travelOld,
+      scripts: ["/javascripts/filterFlightPilote.js"],
     });
-  } catch (err) {
-    next(err);
-  }
-  try {
-    travelOld = await Travel.find({
-      $and: [
-        { id_Pilote: { $eq: req.session.currentUser._id } },
-        { departureTime: { $lt: today_format } },
-      ],
-    });
-  } catch (err) {
-    next(err);
   }
 
-  res.render("profilpilot", {
-    pilot,
-    travel,
-    travelOld,
-    scripts: ["/javascripts/filterFlightPilote.js"],
-  });
+
+  
 });
 
 router.get("/profilpilotEdit/:id", async (req, res, next) => {
