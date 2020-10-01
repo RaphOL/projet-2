@@ -44,7 +44,7 @@ router.post(
 
 router.get("/delete/:id", async (req, res, next) => {
   try {
-    const user = await travelModel.findByIdAndDelete(req.params.id);
+    const user = await travelModel.findByIdAndUpdate(req.params.id);
   } catch (err) {
     next(err);
   }
