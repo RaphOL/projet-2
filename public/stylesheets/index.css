@@ -157,7 +157,8 @@ i {
 }
 
 #phototemoignage {
-  width: 300px;
+  border-radius: 5%;
+  width: 21%;
   margin-left: 10%;
   margin-right: 100px;
 }
@@ -165,6 +166,7 @@ i {
 #ptemoignage {
   width: 40%;
   font-size: 25px;
+  color: #255372;
 }
 
 .b5 {
