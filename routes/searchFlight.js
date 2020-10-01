@@ -6,19 +6,19 @@ const router = express.Router();
 const travelModel = require("../models/travelmodel");
 const userModel = require("../models/usermodel");
 
-router.get("/", async (req, res, next) => {
+router.get("/search/flights", async (req, res, next) => {
   try {
     const flights = await travelModel.find(req.body);
     console.log(flights);
-    res.render("index", { flights: flights });
+    res.render("searchFlight", { flights: flights });
   } catch (err) {
     next(err);
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/search", async (req, res, next) => {
   try {
-    res.redirect("/");
+    res.redirect("/search/flights");
   } catch (err) {
     next(err);
   }
