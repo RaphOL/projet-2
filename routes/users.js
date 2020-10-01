@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const User = require("../models/usermodel");
+const travelModel = require("../models/travelmodel");
 const protectPrivateRoute = require("../middlewares/protectPrivateRoute");
 
 /* GET users listing. */
@@ -40,5 +41,14 @@ router.post(
     }
   }
 );
+
+router.get("/delete/:id", async (req, res, next) => {
+  try {
+    const user = await travelModel.findByIdAndDelete(req.params.id);
+  } catch (err) {
+    next(err);
+  }
+  res.redirect(`/profiluser/${req.session.currentUser._id}`);
+});
 
 module.exports = router;
