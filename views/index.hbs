@@ -6,27 +6,26 @@
 
 
     <form data-aos="fade-up" action="/" method="get" class="card__form">
-        <select class="card__select" name="Departure" id="reg">
-            <option value="region">Departure</option>
-            <option value="Northeast">Toussus-le-Noble</option>
-            <option value="Southwest">Southwest</option>
-            <option value="West">Melun</option>
-            <option value="Southeast">Nice</option>
-            <option value="Midwest">Caen</option>
+        <label for="card_input"></label>
+        <input class="card__select" placeholder="where from" name="Departure">
+        {{#each flights}}
+        <option value="{{this.Departure}}"></option>
+        {{/each}}
         </select>
-        <select class="card__select" name="Destination">
-            <option value="city">Destination</option>
-            <option value="newyork">Melun</option>
-            <option value="sanfrancisco">Le Touquet</option>
-            <option value="washington">Bordeaux</option>
-            <option value="miami">Beauvais</option>
-            <option value="minneapolis">Caen</option>
+        <input placeholder="to" class="card__select" name="Destination">
+        {{#each flights}}
+        <option value="{{this.Destination}}"></option>
+        {{/each}}
         </select>
         <button class="ui blue button card__btn">Find Flight</button>
     </form>
 
 
 </section>
+
+<div class="show-requested-fligths">
+    
+</div>
 
 <div data-aos="fade-up" id="hpblocs" class="b1">
     <h1 data-aos="fade-up" id="hbloc2">Fly With Me, The flight sharing platform</h1>
