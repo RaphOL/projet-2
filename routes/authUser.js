@@ -44,12 +44,16 @@ router.get("/signup/user", function (req, res, next) {
 });
 
 router.get("/profiluser/:id", async (req, res, next) => {
-  const myUser = req.params.id;
-  const travelInfo = await travel.find({
-    id_user: { $eq: req.session.currentUser._id },
-  });
-  const userInfo = await User.findById(myUser);
-  res.render("profiluser", { user: userInfo, travelOld: travelInfo });
+  try {
+    const myUser = req.params.id;
+    const travelInfo = await travel.find({
+      id_user: { $eq: req.session.currentUser._id },
+    });
+    const userInfo = await User.findById(myUser);
+    res.render("profiluser", { user: userInfo, travelOld: travelInfo });
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.post("/signup/user", async (req, res, next) => {
