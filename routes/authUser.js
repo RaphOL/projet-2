@@ -10,6 +10,11 @@ router.get("/signin/user", function (req, res, next) {
   res.render("signin/signinuser");
 });
 
+router.get("/profiluser/profil", (req, res) => {
+  let userCurrent = req.session.currentUser._id;
+  res.redirect(`/profiluser/${userCurrent}`);
+});
+
 router.post("/signin/user", async (req, res, next) => {
   const { email, password } = req.body;
   const foundUser = await User.findOne({ email: email });

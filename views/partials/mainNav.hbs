@@ -24,10 +24,12 @@
             {{/unless}}
         </ul>
         {{#if isLoggedIn}}
-       {{#unless isPilotUser}}
+        {{#unless isPilotUser}}
         <li class="nav-item">
-
             <a id="navA" href="/search/flights">Search for a flight</a>
+        </li>
+        <li class="nav-item">
+            <a id="navA" href="/profilUser/profil">Profil</a>
         </li>
         {{/unless}}
         {{/if}}
@@ -35,7 +37,7 @@
         <li class="nav-item">
             <a id="navA" href="/travel/add">Add a flight</a>
         </li>
-         <li class="nav-item">
+        <li class="nav-item">
             <a id="navA" href="/profilPilot/profil">Profil</a>
         </li>
         {{/if}}
