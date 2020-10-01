@@ -44,6 +44,7 @@ router.post("/book/:id", async (req, res, next) => {
 router.post("/book/:id/travelEdit", async (req, res, next) => {
   if (!req.session.currentUser) {
     res.redirect("/signin/user");
+    return;
   }
 
   try {
