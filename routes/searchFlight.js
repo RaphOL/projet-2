@@ -63,34 +63,36 @@ router.post("/book/:id/travelEdit", async (req, res, next) => {
   }
 });
 
-router.get("/delete/:id", async (req, res, next) => {
-  const myUserBook = req.params.id;
-
-  const userBook = await travelModel.findById(myUserBook);
-  res.render("profiluser", { user: userBook });
-});
-
-router.post("/delete/:id", async (req, res, next) => {
-  const myUserBook = req.params.id;
-  res.redirect(`/profiluser/${myUserBook}`);
-});
-
-router.post("/delete/:id/travelDelit", async (req, res, next) => {
-  const myUserBook = req.params.id;
+router.get("/delete/travelDelete/:id", async (req, res, next) => {
+  console.log();
+  // const myUserBook = req.params.id;
+  console.log("pouet");
+  if (!req.session.currentUser) {
+    res.redirect("/signin/user");
+  }
+  const travelId = req.params.id;
   const userId = req.session.currentUser._id;
+
   try {
-    const userDb = await userModel.findByIdAndUpdate(
+    const userDb = await userModel.updateOne(
       { _id: userId },
-      { $push: { flights: myUserBook } }
+      { $pullAll: { flights: [travelId] } }
     );
     const travelDb = await travelModel.findByIdAndUpdate(
-      { _id: myUserBook },
-      { $inc: { availableSeats: +1 }, $push: { id_user: userId } }
+      { _id: travelId },
+      { $inc: { availableSeats: +1 }, $pullAll: { id_user: [userId] } }
     );
     res.redirect(`/profiluser/${req.session.currentUser._id}`);
   } catch (error) {
     next(error);
   }
+});
+
+router.get("/delete/:id", async (req, res, next) => {
+  const myUserBook = req.params.id;
+  console.log("here part 42");
+  const userBook = await travelModel.findById(myUserBook);
+  res.render("profiluser", { user: userBook });
 });
 
 module.exports = router;

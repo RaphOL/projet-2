@@ -11,6 +11,10 @@ router.get("/signin/user", function (req, res, next) {
 });
 
 router.get("/profiluser/profil", (req, res) => {
+  if (!req.session.currentUser) {
+    res.redirect("/signin/user");
+  }
+
   let userCurrent = req.session.currentUser._id;
   res.redirect(`/profiluser/${userCurrent}`);
 });
