@@ -56,16 +56,18 @@
 .logo-item {
   /** don't touch */
   width: -webkit-fill-available;
-  padding: 20px;
+  /* padding: 20px; */
   width: 200px;
+  margin: 0px;
+  margin-left: 15px;
 }
 
 #logo {
   /** don't touch */
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
   width: 40%;
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
 }
 
