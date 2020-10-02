@@ -72,7 +72,11 @@ router.post("/signup/user", async (req, res, next) => {
       const hashedPassword = bcrypt.hashSync(newUser.password, salt);
       newUser.password = hashedPassword;
       const user = await User.create(newUser);
-      res.redirect("/signin/user");
+
+      
+      req.session.currentUser = user;
+      res.redirect(`/profiluser/${user._id}`);
+      //res.redirect("/signin/user");
     }
   } catch (error) {
     next(error);
