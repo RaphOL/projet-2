@@ -60,10 +60,10 @@ router.post("/signup/pilot", async (req, res, next) => {
     const hashedPassword = bcrypt.hashSync(newUser.password, salt);
     newUser.password = hashedPassword;
     const pilotCreate = await Pilot.create(newUser);
-      
-   // res.redirect(`/profilpilote/${pilotCreate.id}`);
+      req.session.currentUser = pilotCreate;
+     res.redirect(`/profilpilote/${pilotCreate._id}`);
    // res.redirect("/");  
-   res.redirect(`/signin/pilot`);
+  // res.redirect(`/signin/pilot`);
     }
   } catch (err) {
     next(err);
@@ -95,7 +95,7 @@ router.get("/profilpilote/:id", async (req, res, next) => {
 
 
   if (!req.session.currentUser){
-    res.redirect("");
+    res.redirect("/");
   }else{
     try {
       travel = await Travel.find({
