@@ -11,10 +11,10 @@ router.get("/search/flights", async (req, res, next) => {
   try {
     const flights = await travelModel.find(req.body);
     let isLogged = false;
+
     if(req.session.currentUser)
     {
       isLogged = true;
-     
     }
 
     flights.logged = isLogged;
