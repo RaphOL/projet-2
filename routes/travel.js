@@ -1,16 +1,29 @@
 const express = require("express");
 const router = express.Router();
 const travelModel = require("../models/travelmodel");
+const uploader = require("../config/cloudinary");
 
 router.get("/add", function (req, res, next) {
-  res.render("addFlight" , {scripts: ["/javascripts/checkFlightPilote.js"]});
+  res.render("addFlight", { scripts: ["/javascripts/checkFlightPilote.js"] });
 });
 
 router.post("/add", async (req, res, next) => {
   try {
-    const { id_Pilote, id_user, numberOfSeats, availableSeats, immatriculation, Price,
-      Departure, Destination, Aircraft, departureTime,  arrivalTime, Description } = req.body;
-     const objTravel = {
+    const {
+      id_Pilote,
+      id_user,
+      numberOfSeats,
+      availableSeats,
+      immatriculation,
+      Price,
+      Departure,
+      Destination,
+      Aircraft,
+      departureTime,
+      arrivalTime,
+      Description,
+    } = req.body;
+    const objTravel = {
       id_Pilote: req.session.currentUser._id,
       numberOfSeats,
       arrivalTime,
@@ -30,24 +43,36 @@ router.post("/add", async (req, res, next) => {
   }
 });
 
-router.get("/edit/:id", async(req, res, next)=> {  
+router.get("/edit/:id", async (req, res, next) => {
   const travel = await travelModel.findById(req.params.id);
-  res.render("editFlight", {travel, pilote: req.session.currentUser._id});
+  res.render("editFlight", { travel, pilote: req.session.currentUser._id });
 });
 
-router.post("/edit/:id", async(req, res, next)=> {
-  try{
-    const travel = await travelModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
-  } catch(err){
+router.post("/edit/:id", uploader.single("image"), async (req, res, next) => {
+  try {
+    const newTravel = req.body;
+    const newTravelImg = req.body;
+
+    if (req.file) {
+      newTravelImg.image = req.file.path;
+    }
+
+    const travel = await travelModel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+  } catch (err) {
     next(err);
   }
+  
   res.redirect(`/profilpilote/${req.session.currentUser._id}`);
 });
 
 router.get("/delete/:id", async (req, res, next) => {
   try {
-    const travel = await travelModel.findByIdAndDelete(req.params.id); 
-  } catch(err) {
+    const travel = await travelModel.findByIdAndDelete(req.params.id);
+  } catch (err) {
     next(err);
   }
   res.redirect(`/profilpilote/${req.session.currentUser._id}`);
