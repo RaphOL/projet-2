@@ -52,7 +52,7 @@ router.post("/edit/:id", uploader.single("image"), async (req, res, next) => {
   try {
     const newTravel = req.body;
     const newTravelImg = req.body;
-
+    console.log(req.file)
     if (req.file) {
       newTravelImg.image = req.file.path;
     }
