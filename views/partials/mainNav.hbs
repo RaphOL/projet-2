@@ -1,3 +1,25 @@
+<div id="burgerMenu">
+    <h1>Fly with me</h1>
+    <div class="outer-menu">
+        <input class="checkbox-toggle" type="checkbox" />
+        <div class="hamburger">
+            <div></div>
+        </div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        <li><a href="/signin/user">Passenger Sigin</a></li>
+                        <li><a href="/signup/user">Passenger Signup</a></li>
+                        <li><a href="/signin/pilot">Pilot Sigin</a></li>
+                        <li><a href="/signup/pilot">Pilot Signup</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div id="nav-container">
     <div id="logo">
         <a class="logo" href="/"><i id="imagelogo" class="fas fa-plane-departure"></i></a>
@@ -10,7 +32,8 @@
             <li>
                 <p><a class="navToggle" href="#">Passenger</a> </p>
                 <div>
-                    <a class="sign" href="/signin/user">Sign in</a> <a class="sign" href="/signup/user">Sign up</a>
+                    <a class="sign" href="/signin/user">Sign in</a> <a class="sign" href="/signup/user">Sign
+                        up</a>
                 </div>
             </li>
             {{/unless}}
@@ -18,7 +41,8 @@
             <li>
                 <p><a class="navToggle" href="#">Pilot</a></p>
                 <div>
-                    <a class="sign" href="/signin/user">Sign in</a> <a class="sign" href="/signup/pilot">Sign up</a>
+                    <a class="sign" href="/signin/pilot">Sign in</a> <a class="sign" href="/signup/pilot">Sign
+                        up</a>
                 </div>
             </li>
             {{/unless}}

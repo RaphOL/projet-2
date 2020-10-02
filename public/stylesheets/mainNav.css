@@ -4,6 +4,10 @@
   font-size: larger;
 } */
 
+#burgerMenu {
+  display: none;
+}
+
 #nav-container {
   width: 100%;
   height: 7vh;
@@ -19,12 +23,11 @@
 }
 
 @media screen and (max-width: 425px) {
-  #nav-container {
-    height: 15vh;
-    background-color: red;
+  #burgerMenu {
+    display: block;
   }
-  .logo {
-    width: 50%;
+  #nav-container {
+    display: none;
   }
 }
 
