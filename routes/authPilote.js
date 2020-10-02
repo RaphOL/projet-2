@@ -61,7 +61,7 @@ router.post("/signup/pilot", async (req, res, next) => {
     newUser.password = hashedPassword;
     const pilotCreate = await Pilot.create(newUser);
       
-    res.redirect(`/profilpilote/${pilotCreate.id}`);
+   // res.redirect(`/profilpilote/${pilotCreate.id}`);
    // res.redirect("/");  
    res.redirect(`/signin/pilot`);
     }
