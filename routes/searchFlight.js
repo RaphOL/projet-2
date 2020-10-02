@@ -5,12 +5,12 @@ const { findByIdAndUpdate } = require("../models/travelmodel");
 const router = express.Router();
 const travelModel = require("../models/travelmodel");
 const userModel = require("../models/usermodel");
+const dayjs = require("dayjs");
 
 router.get("/search/flights", async (req, res, next) => {
   try {
     const flights = await travelModel.find(req.body);
-    console.log(flights);
-    res.render("searchFlight", { flights: flights });
+    res.render("searchFlight", { flights: flights, scripts: ["/javascripts/clients.js"] });
   } catch (err) {
     next(err);
   }
@@ -65,9 +65,7 @@ router.post("/book/:id/travelEdit", async (req, res, next) => {
 });
 
 router.get("/delete/travelDelete/:id", async (req, res, next) => {
-  console.log();
   // const myUserBook = req.params.id;
-  console.log("pouet");
   if (!req.session.currentUser) {
     res.redirect("/signin/user");
   }
@@ -91,15 +89,53 @@ router.get("/delete/travelDelete/:id", async (req, res, next) => {
 
 router.get("/delete/:id", async (req, res, next) => {
   const myUserBook = req.params.id;
-  console.log("here part 42");
   const userBook = await travelModel.findById(myUserBook);
   res.render("profiluser", { user: userBook });
 });
 
-module.exports = router;
 
-//il faut vérifier si jamais nombre de seat ok
-// il faut décrémeter le nombre de seat dans le modèle ( collection travel DB )
-// ajouter le passager dans le vol (travel DB)
-// enregistrer le vol dans la db user / quel user ?
-// renvoyer sur le profil avec le vol booké
+
+router.get("/myfilterDepart", async (req, res, next) => { 
+  let today = new Date().now;
+  let today_format = dayjs(today).format("YYYY-MM-DDTHH:mm");
+  try{
+  const filterDepart = req.query[0];
+   if(filterDepart){
+    departure = await travelModel.find({
+      $and: [
+        {Departure: {$regex: '.*' + filterDepart + '.*', $options: 'i'}},
+        { departureTime: { $gte: today_format } },
+        {availableSeats: { $gte: 1 }},
+      ],  
+    });
+   }
+   else {
+    departure = await travelModel.find({
+      $and: [
+        { departureTime: { $gte: today_format } },
+        {availableSeats: { $gte: 1 }},
+      ],  
+    });
+   } 
+  res.json(departure);
+  }catch(err){
+    next(err);
+  }
+});
+
+// router.get("/myfilterDepart", async (req, res, next) => { 
+//   try{
+//   const filterDepart = req.query[0];
+//    if(filterDepart){
+//     departure = await travelModel.find({Departure: {$regex: '.*' + filterDepart + '.*', $options: 'i'}});
+//    }
+//    else {
+//     departure = await travelModel.find();
+//    } 
+//   res.json(departure);
+//   }catch(err){
+//     next(err);
+//   }
+// });
+
+module.exports = router;
