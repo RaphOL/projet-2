@@ -1,6 +1,18 @@
-// You can also pass an optional settings object
-// below listed default settings
 AOS.init();
+
+const nav = document.querySelectorAll(".navToggle");
+const sign = document.querySelectorAll(".sign");
+console.log(sign);
+nav.forEach((element) =>
+  element.addEventListener("click", function () {
+    sign.forEach((element) => {
+      //   element.classList.add("skyblue");
+      element.style.color = "#1D7BA7";
+      console.log("add class");
+    });
+  })
+);
+
 // AOS.init({
 //   // Global settings:
 //   disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function

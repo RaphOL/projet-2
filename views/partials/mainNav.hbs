@@ -8,17 +8,17 @@
         <ul class="Nav">
             {{#unless isLoggedIn}}
             <li>
-                <p><a href="#">Passenger</a> </p>
+                <p><a class="navToggle" href="#">Passenger</a> </p>
                 <div>
-                    <a href="/signin/user">Sign in</a> <a href="/signup/user">Sign up</a>
+                    <a class="sign" href="/signin/user">Sign in</a> <a class="sign" href="/signup/user">Sign up</a>
                 </div>
             </li>
             {{/unless}}
             {{#unless isLoggedIn}}
             <li>
-                <p><a href="#">Pilot</a></p>
+                <p><a class="navToggle" href="#">Pilot</a></p>
                 <div>
-                    <a href="/signin/pilot">Sign in</a> <a href="/signup/pilot">Sign up</a>
+                    <a class="sign" href="/signin/user">Sign in</a> <a class="sign" href="/signup/pilot">Sign up</a>
                 </div>
             </li>
             {{/unless}}
