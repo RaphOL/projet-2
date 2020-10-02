@@ -59,13 +59,13 @@ router.post("/edit/:id", uploader.single("image"), async (req, res, next) => {
 
     const travel = await travelModel.findByIdAndUpdate(
       req.params.id,
-      req.body,
+      newTravel,
       { new: true }
     );
   } catch (err) {
     next(err);
   }
-  
+
   res.redirect(`/profilpilote/${req.session.currentUser._id}`);
 });
 
