@@ -10,7 +10,7 @@
     {{#each this}}
     <div data-aos="zoom-in" class="property-card">
         <div id="bouttonSee" class="property-image">
-            <img id="imageSee" class="size-image" class="image" src="/images/usty-watson-Xo7MkRUKNPQ-unsplash.jpg" alt="" srcset="">
+            <img id="imageSee" class="size-image" class="image" src={{this.image}}  alt="" srcset="">
             <div class="property-image-title">
                 <form action="/book/{{this._id}}" method="post">
                     <button class="ui primary button" name="book">See this flight</button>
