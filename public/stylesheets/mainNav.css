@@ -128,7 +128,7 @@ i {
   }
 }
 
-@media screen and (max-width: 578px) {
+/* @media screen and (max-width: 578px) {
   .Nav {
     position: absolute;
     right: 0;
@@ -141,5 +141,5 @@ i {
   }
   #nav-container {
     height: 15vh;
-  }
+  } */
 }
