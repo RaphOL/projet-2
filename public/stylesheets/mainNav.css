@@ -37,6 +37,7 @@
     color: rgb(53, 123, 156);
     outline: none;
     cursor: pointer;
+    font-size: 10px;
   }
   #nav-container {
     display: none;
