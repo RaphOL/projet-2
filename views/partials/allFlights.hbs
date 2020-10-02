@@ -1,9 +1,11 @@
 <br>
+{{#if this.logged}}
   <div class="ui right action left icon input" style="margin-left: 34vw; margin-top: 12vh;">
          <i class="search icon"></i>
         <input type="text" id="departure" placeholder="Search for a departure">
         {{!-- <input type="date"> --}}
     </div>
+ {{/if}}    
 <div class="card-box">
     {{#each this}}
     <div data-aos="zoom-in" class="property-card">
