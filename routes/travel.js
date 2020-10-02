@@ -51,22 +51,22 @@ router.get("/edit/:id", async (req, res, next) => {
 router.post("/edit/:id", uploader.single("image"), async (req, res, next) => {
   try {
     const newTravel = req.body;
-    const newTravelImg = req.body;
-    console.log(req.file)
+
+    console.log(req.file,"this is rea file")
     if (req.file) {
-      newTravelImg.image = req.file.path;
+      newTravel.image = req.file.path;
     }
 
     const travel = await travelModel.findByIdAndUpdate(
       req.params.id,
       newTravel,
       { new: true }
-    );
+      );
+      res.redirect(`/profilpilote/${req.session.currentUser._id}`);
   } catch (err) {
     next(err);
   }
 
-  res.redirect(`/profilpilote/${req.session.currentUser._id}`);
 });
 
 router.get("/delete/:id", async (req, res, next) => {
