@@ -10,6 +10,14 @@ const dayjs = require("dayjs");
 router.get("/search/flights", async (req, res, next) => {
   try {
     const flights = await travelModel.find(req.body);
+    let isLogged = false;
+
+    if(req.session.currentUser)
+    {
+      isLogged = true;
+    }
+
+    flights.logged = isLogged;
     res.render("searchFlight", { flights: flights, scripts: ["/javascripts/clients.js"] });
   } catch (err) {
     next(err);
