@@ -2,12 +2,13 @@ const express = require("express");
 const router = express.Router();
 const travelModel = require("../models/travelmodel");
 const userModel = require("../models/usermodel");
+const dayjs = require("dayjs");
 
 router.get("/find/flights", async (req, res, next) => {
-  try {
-    console.log(req.body, "super-tototoooo", req.query);
+  let today = new Date().now;
+  let today_format = dayjs(today).format("YYYY-MM-DDTHH:mm");
+  try { 
     const departure = req.query.Departure;
-    console.log(departure);
     const departureTime = req.query.departureTime;
     let flights;
     if (departureTime) {
@@ -22,12 +23,11 @@ router.get("/find/flights", async (req, res, next) => {
       flights = await travelModel.find({
         $and: [
           { Departure: { $eq: departure } },
+          { departureTime: { $gte: today_format } },
           { availableSeats: { $gte: 1 } },
         ],
       });
     }
-
-    console.log(req.params);
     res.render("searchBar-flight", { flights: flights });
   } catch (err) {
     next(err);

@@ -8,8 +8,17 @@ const userModel = require("../models/usermodel");
 const dayjs = require("dayjs");
 
 router.get("/search/flights", async (req, res, next) => {
+  let today = new Date().now;
+  let today_format = dayjs(today).format("YYYY-MM-DDTHH:mm");
   try {
-    const flights = await travelModel.find(req.body);
+    console.log("body moving body moving!!: ",req.body);
+   // const flights = await travelModel.find(req.body);
+   const flights = await travelModel.find({
+    $and: [
+      { departureTime: { $gte: today_format } },
+      {availableSeats: { $gte: 1 }},
+    ],
+   });
     let isLogged = false;
 
     if(req.session.currentUser)
