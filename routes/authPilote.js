@@ -80,7 +80,7 @@ router.get("/profilpilote/:id", async (req, res, next) => {
   let today_format = dayjs(today).format("YYYY-MM-DDTHH:mm");
   
   if (!req.session.currentUser){
-    res.redirect("/");
+    res.redirect("");
   }else{
     try {
       travel = await Travel.find({
@@ -127,7 +127,6 @@ router.get("/profilpilotEdit/:id", async (req, res, next) => {
 router.post("/profilpilotEdit/:id", async (req, res, next) => {
   try {
     const piloteId = req.params.id;
-    console.log("::::////÷÷÷/", req.body);
     const updatePilote = await Pilot.findByIdAndUpdate(piloteId, req.body, {
       new: true,
     });

@@ -14,7 +14,9 @@ router.get("/find/flights", async (req, res, next) => {
     if (departureTime) {
       flights = await travelModel.find({
         $and: [
-          { Departure: { $eq: departure } },
+
+          {Departure: {$regex: '.*' + departure + '.*', $options: 'i'}},
+        
           { departureTime: { $gte: departureTime } },
           { availableSeats: { $gte: 1 } },
         ],
@@ -22,7 +24,8 @@ router.get("/find/flights", async (req, res, next) => {
     } else {
       flights = await travelModel.find({
         $and: [
-          { Departure: { $eq: departure } },
+          {Departure: {$regex: '.*' + departure + '.*', $options: 'i'}},
+          
           { departureTime: { $gte: today_format } },
           { availableSeats: { $gte: 1 } },
         ],
