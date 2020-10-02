@@ -7,7 +7,7 @@ nav.forEach((element) =>
   element.addEventListener("click", function () {
     sign.forEach((element) => {
       //   element.classList.add("skyblue");
-      element.style.color = "#1D7BA7";
+      element.style.color = "#1F70BF";
       console.log("add class");
     });
   })
