@@ -45,19 +45,26 @@ router.post("/signup/pilot", async (req, res, next) => {
       //  req.flash("error", "Email already taken");
       req.session.msg = { status: 401, text: "Email already taken." };
       return res.redirect("/signup/pilot");
-    }
+    } else {
     // Add some salts just a little
+    // const salt = 10;
+    // const hashedPassword = bcrypt.hashSync(password, salt);
+    // const pilotCreate = await Pilot.create({
+    //   name,
+    //   email,
+    //   lastname,
+    //   password: hashedPassword,
+    // });
+    const newUser = req.body;
     const salt = 10;
-    const hashedPassword = bcrypt.hashSync(password, salt);
-    const pilotCreate = await Pilot.create({
-      name,
-      email,
-      lastname,
-      password: hashedPassword,
-    });
-    
-    res.redirect(`/profilpilote/${req.sesion.currentUser._id}`);
-    //res.redirect(`/profilpilote/${pilotCreate._id}`);
+    const hashedPassword = bcrypt.hashSync(newUser.password, salt);
+    newUser.password = hashedPassword;
+    const pilotCreate = await Pilot.create(newUser);
+      
+    res.redirect(`/profilpilote/${pilotCreate.id}`);
+   // res.redirect("/");  
+   res.redirect(`/signin/pilot`);
+    }
   } catch (err) {
     next(err);
   }
@@ -73,12 +80,20 @@ router.get("/profilPilot/profil", (req, res) => {
 });
 
 router.get("/profilpilote/:id", async (req, res, next) => {
-  const pilot = await Pilot.findById(req.params.id);
-  let travel;
-  let travelOld;
-  let today = new Date().now;
-  let today_format = dayjs(today).format("YYYY-MM-DDTHH:mm");
   
+  let pilot;
+  let travel;
+    let travelOld;
+    let today = new Date().now;
+    let today_format = dayjs(today).format("YYYY-MM-DDTHH:mm");
+  try{
+    const pilote = await Pilot.findById(req.params.id);
+    pilot =pilote;
+  }catch(err){
+    next(err);
+  }
+
+
   if (!req.session.currentUser){
     res.redirect("");
   }else{
